@@ -6645,14 +6645,14 @@
                 return [t, n]
             }
         }
-    }]).factory("DropHandler", ["Designer", "DocumentRenderer", "DragHandler", "FrameCoords", "Config", "DOM", "Action", "$rootScope", "$timeout", "$interval", "Stats", function (e, t, n, i, o, a, r, l, s, d, c) {
+    }]).factory("DropHandler", ["Designer", "DocumentRenderer", "DragHandler", "FrameCoords", "Config", "DOM", "Action", "$rootScope", "$timeout", "$interval", "Stats", function (Designer, DocumentRenderer, DragHandler, FrameCoords, Config, a, Action, $rootScope, $timeout, $interval, Stats) {
         return function (p) {
             var u, g, h, m, f, v, y, w, b, C, S, P, x, T, D, k, I, _, E, M, A, j, L, V = false, R = false, N = function (e, t) {
                 E = true, M = [t.pageX, t.pageY], A = e, e.startResize(t)
             }, U = function (t) {
                 if (E && M && A) {
                     var n = (t.pageX - M[0], t.pageY - M[1]);
-                    A.canResizeY && !A.canResizeX && A.resize(0, n), ie(A.getId()), e.save()
+                    A.canResizeY && !A.canResizeX && A.resize(0, n), ie(A.getId()), Designer.save()
                 }
             }, F = function (e) {
                 A && A.commitResize()
@@ -6665,19 +6665,19 @@
                     var n = b.getRendered();
                     n.classList.remove("ic-dragging"), P && (n.style.width = P.width, n.style.height = P.height, n.style.zIndex = P.zIndex), n.style.webkitTransform = n.style.transform = ""
                 } else t || B();
-                e.getSelectedComponent() && oe(e.getSelectedComponent().getId()), b = null, dragStartPoint = null, C = null, S = null, v = null, h = null, V = false
+                Designer.getSelectedComponent() && oe(Designer.getSelectedComponent().getId()), b = null, dragStartPoint = null, C = null, S = null, v = null, h = null, V = false
             }, H = function (e) {
                 var t;
                 if (!e)return null;
                 do e.getAttribute && (t = e.getAttribute("data-componentid")), e = e.parentNode; while (!t && e);
                 return t
             }, q = function (t, n) {
-                var i = e.getSelectedComponent(), o = e.getById(H(t));
+                var i = Designer.getSelectedComponent(), o = Designer.getById(H(t));
                 return o ? i && o.isChildOf(i) ? i : o : void 0
             }, z = function (t, n, i) {
                 var o = H(t);
                 if (!o)return console.error("No such component found for the given node."), null;
-                var a = e.getById(o);
+                var a = Designer.getById(o);
                 if (!a)return console.error("No such component found for the given node."), null;
                 for (; a;) {
                     if (a.acceptsChild(n) && (!i || a.getRendered() !== i))return a;
@@ -6686,8 +6686,8 @@
             }, W = function (e) {
                 return u.querySelector('[data-componentid="' + e + '"]')
             }, G = function (n) {
-                var i, o = e.getDocument(), a = o.createComponent(n, true, true, true);
-                return i = t.renderChildTree(a, null, true), i.classList.add("ic-placeholder-component"), i
+                var i, o = Designer.getDocument(), a = o.createComponent(n, true, true, true);
+                return i = DocumentRenderer.renderChildTree(a, null, true), i.classList.add("ic-placeholder-component"), i
             }, X = function () {
                 x && (x.classList.remove("ic-select-remove"), $(x).detach())
             }, Y = function (t) {
@@ -6699,9 +6699,9 @@
                 }), n.on("mouseleave mouseout", function () {
                     n.removeClass("ic-select-remove"), n.removeClass("ic-select-duplicate")
                 }), n.find(".select-remove").on("click", function (t) {
-                    e.removeSelectedComponent(), X()
+                    Designer.removeSelectedComponent(), X()
                 }), n.find(".select-duplicate").on("click", function (t) {
-                    e.duplicate()
+                    Designer.duplicate()
                 }), n[0]
             }, J = function (e, t, n, i) {
                 f && f.parentNode && f.parentNode.removeChild(f), f && y === t || (f = G(t), y = t);
@@ -6714,19 +6714,19 @@
                 var o = e.$rendered, r = e.getRenderedChildren(), l = o.querySelector(".ic-over");
                 l && l.classList.remove("ic-over"), o !== v && (e.$rendered.classList.add("ic-over"), $(v).detach(), m = a.getIndexAtPoint(r, n, i), 0 > m ? e.getRenderedTarget().appendChild(v) : e.getRenderedTarget().insertBefore(v, r[m]))
             }, Q = function (t, n) {
-                var i = e.getDocument();
+                var i = Designer.getDocument();
                 if (!t)return void console.error("No active container to drop into");
                 var o = i.createComponent(n, true);
-                c.t("Added Component", {type: n}), 0 > m ? r.exec({
+                Stats.t("Added Component", {type: n}), 0 > m ? Action.exec({
                     action: "appendChild",
                     parent: t,
                     child: o
-                }) : r.exec({
+                }) : Action.exec({
                     action: "insertChild",
                     parent: t,
                     child: o,
                     index: m
-                }), l.$emit("component.dropped", o), setTimeout(function () {
+                }), $rootScope.$emit("component.dropped", o), setTimeout(function () {
                     oe(o.getId())
                 }, 250), o.commitChildren()
             }, ee = function () {
@@ -6738,12 +6738,12 @@
                 var n = e;
                 "undefined" != typeof t.icElement && (n = t.icElement(e));
                 var i = n.getBoundingClientRect();
-                T || (T = ee()), e !== D && (T.parentNode ? (T.parentNode.removeChild(T), e.ownerDocument.body.appendChild(T)) : e.ownerDocument.body.appendChild(T), T.classList.remove("active"), D = e), s.cancel(k), k = s(function () {
+                T || (T = ee()), e !== D && (T.parentNode ? (T.parentNode.removeChild(T), e.ownerDocument.body.appendChild(T)) : e.ownerDocument.body.appendChild(T), T.classList.remove("active"), D = e), $timeout.cancel(k), k = $timeout(function () {
                     T.classList.add("active")
                 }, 10), T.style.width = i.width + "px", T.style.height = i.height + "px", T.style.webkitTransform = T.style.transform = "translate3d(" + i.left + "px, " + i.top + "px, 0)"
             }, ie = function (t) {
-                s(function () {
-                    var n = e.getById(t), i = W(t);
+                $timeout(function () {
+                    var n = Designer.getById(t), i = W(t);
                     if (i) {
                         var o = u.querySelector(".ic-selected");
                         o && o.classList.remove("ic-selected"), i.classList.add("ic-selected");
@@ -6755,8 +6755,8 @@
                 }, 10)
             }, oe = function (t) {
                 if (t && !j) {
-                    var n = e.getById(t);
-                    n && n.canSelect && (e.select(n), ie(t))
+                    var n = Designer.getById(t);
+                    n && n.canSelect && (Designer.select(n), ie(t))
                 }
             }, ae = function () {
                 X()
@@ -6780,27 +6780,27 @@
                     var t = b.getRendered();
                     S || (S = [e.pageX, e.pageY]);
                     var n = [e.pageX + C[0], e.pageY + C[1]], i = e.pageX - dragStartPoint[0], r = e.pageY - dragStartPoint[1], l = Math.sqrt(i * i + r * r);
-                    if (!w && l > o.get("drag_min_distance", 7))le(e); else if (!w)return;
+                    if (!w && l > Config.get("drag_min_distance", 7))le(e); else if (!w)return;
                     w = true, n = [e.pageX + C[0], e.pageY + C[1]], t.style.webkitTransform = t.style.transform = "translate3d(" + n[0] + "px, " + n[1] + "px, 0) scale(0.95)";
                     var s = a.getNodeAtPoint(e.target.ownerDocument, e.pageX, e.pageY);
                     h = z(s, b.type, t), h && Z(h, b, n[0], n[1]), S = [e.pageX, e.pageY]
                 }
             }, de = function (e) {
-                return E && F(e), E = false, w = false, b ? h && V ? (r.exec({
+                return E && F(e), E = false, w = false, b ? h && V ? (Action.exec({
                     action: "moveChild",
                     oldParent: b.parent,
                     oldIndex: b.getIndex(),
                     newParent: h,
                     newIndex: m,
                     child: b
-                }), void O(true)) : (V && ($(b.rendered).remove(), l.$emit("component.redraw", b.parent)), void O()) : void O()
+                }), void O(true)) : (V && ($(b.rendered).remove(), $rootScope.$emit("component.redraw", b.parent)), void O()) : void O()
             }, ce = function (e) {
                 return e.target.classList.contains("ic-placeholder-component") ? true : (e.preventDefault(), false)
             }, pe = function (e) {
                 var t;
                 if (e.preventDefault(), !e.target.classList.contains("ic-placeholder-component")) {
-                    var o = n.getActiveDrag();
-                    if (o)return g = i.getPoint(e.target.ownerDocument, e.pageX, e.pageY), t = a.getNodeAtPoint(e.target.ownerDocument, g[0], g[1]), h = z(t, o.type), h ? (e.dataTransfer.effectAllowed = "copy", e.dataTransfer.dropEffect = "copy", J(h, o.type, g[0], g[1])) : (e.dataTransfer.effectAllowed = "none", e.dataTransfer.dropEffect = "none", K()), true
+                    var o = DragHandler.getActiveDrag();
+                    if (o)return g = FrameCoords.getPoint(e.target.ownerDocument, e.pageX, e.pageY), t = a.getNodeAtPoint(e.target.ownerDocument, g[0], g[1]), h = z(t, o.type), h ? (e.dataTransfer.effectAllowed = "copy", e.dataTransfer.dropEffect = "copy", J(h, o.type, g[0], g[1])) : (e.dataTransfer.effectAllowed = "none", e.dataTransfer.dropEffect = "none", K()), true
                 }
             }, ue = function (e) {
                 return true
@@ -6826,65 +6826,65 @@
                     endEditing()
                 }
                 var o = H(n.target);
-                return null == o && null == n.target.parentNode && (o = H(t.$frameDocument.elementFromPoint(n.pageX, n.pageY))), o ? (e.getById(o).onClick(), oe(o), n.preventDefault(), false) : void 0
+                return null == o && null == n.target.parentNode && (o = H(DocumentRenderer.$frameDocument.elementFromPoint(n.pageX, n.pageY))), o ? (Designer.getById(o).onClick(), oe(o), n.preventDefault(), false) : void 0
             }, ye = function (t) {
                 var n = t.target;
                 if (!j) {
                     if (E)return void U(t);
                     if (b)return se(t), void t.preventDefault();
-                    var i = H(n), o = e.getSelectedComponent(), a = o && o.getId() || null;
+                    var i = H(n), o = Designer.getSelectedComponent(), a = o && o.getId() || null;
                     if (i && i !== a) {
-                        var r = e.getById(i), l = W(i);
+                        var r = Designer.getById(i), l = W(i);
                         l || te(), r.canSelect && (I = l, _ = r, ne(l, r))
                     } else te()
                 }
             }, we = function (e) {
                 te(), D = null
             };
-            u = p, l.$on("drag.start", function (t, n) {
-                e.deselect(), X(), te()
-            }), l.$on("drag.end", function (e, t) {
-                s(function () {
+            u = p, $rootScope.$on("drag.start", function (t, n) {
+                Designer.deselect(), X(), te()
+            }), $rootScope.$on("drag.end", function (e, t) {
+                $timeout(function () {
                     R || B(), R = false
                 })
-            }), l.$on("designer.devicechange", function () {
+            }), $rootScope.$on("designer.devicechange", function () {
                 te();
-                var t = e.getSelectedComponent();
+                var t = Designer.getSelectedComponent();
                 if (t) {
-                    var n = e.getSelectedComponent().getId();
-                    d(function () {
+                    var n = Designer.getSelectedComponent().getId();
+                    $interval(function () {
                         oe(n)
                     }, 10, 30)
                 }
-            }), l.$on("designer.orientationchange", function () {
+            }), $rootScope.$on("designer.orientationchange", function () {
                 te();
-                var t = e.getSelectedComponent();
+                var t = Designer.getSelectedComponent();
                 if (t) {
-                    var n = e.getSelectedComponent().getId();
-                    d(function () {
+                    var n = Designer.getSelectedComponent().getId();
+                    $interval(function () {
                         oe(n)
                     }, 10, 30)
                 }
-            }), l.$on("designer.statusbartoggle", function () {
+            }), $rootScope.$on("designer.statusbartoggle", function () {
                 te();
-                var t = e.getSelectedComponent();
+                var t = Designer.getSelectedComponent();
                 if (t) {
-                    var n = e.getSelectedComponent().getId();
-                    d(function () {
+                    var n = Designer.getSelectedComponent().getId();
+                    $interval(function () {
                         oe(n)
                     }, 10, 30)
                 }
-            }), l.$on("contentScroll", function (t, n) {
+            }), $rootScope.$on("contentScroll", function (t, n) {
                 I && ne(I, _);
-                var i = e.getSelectedComponent();
-                i && oe(e.getSelectedComponent().getId())
-            }), l.$on("designer.selected", function (e, t) {
+                var i = Designer.getSelectedComponent();
+                i && oe(Designer.getSelectedComponent().getId())
+            }), $rootScope.$on("designer.selected", function (e, t) {
                 ie(t.getId())
-            }), l.$on("designer.deselected", function (e, t) {
+            }), $rootScope.$on("designer.deselected", function (e, t) {
                 ae()
-            }), l.$on("document.propertyChanged", function (t, n, i) {
-                s(function () {
-                    "undefined" != typeof i && i == e.getSelectedComponent() && ie(i.getId())
+            }), $rootScope.$on("document.propertyChanged", function (t, n, i) {
+                $timeout(function () {
+                    "undefined" != typeof i && i == Designer.getSelectedComponent() && ie(i.getId())
                 })
             });
             var be = {

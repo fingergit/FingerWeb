@@ -52,4 +52,5 @@
 1. 拖拽流程-appComponents指令中添加。
    在appComponents指令中，用到了`DragHandler` Factory，通过Factory的`setElement`，为每个element设置了`mousedown`、`touchstart`、`dragstart`、`dragend`这些拖拽相关的事件。
 
-   关于html5中的拖拽事件，参见http://jingyan.baidu.com/article/1974b289a013d4f4b1f77411.html
+   关于html5中的拖拽事件，参见http://jingyan.baidu.com/article/1974b289a013d4f4b1f77411.html、
+   http://www.tuicool.com/articles/j6Zbam
