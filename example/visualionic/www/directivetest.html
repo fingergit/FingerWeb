@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>测试自定义指令</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="directivetest/js/app.js"></script>
+  </head>
+  <body ng-app="docsTabsExample">
+  <div>
+    <simple-direct1>指令1</simple-direct1>
+  </div>
+  <div>
+    <simple-direct2 value="http://www.baidu.com" text="百毒">指令2</simple-direct2>
+  </div>
+
+  <div>Scope false: 继承但不隔离（外部值和内部值是一体的，一起变化）</div>
+  <div ng-controller="ScopeTestCtrl" ng-init="myProperty='Hello world'">
+    外部: {{myProperty}}
+    <input ng-model="myProperty" />
+    <div scope-false-direct></div>
+  </div>
+
+  <div>Scope true: 继承并隔离(内部未改变时，内部随随外部值的变化而变化，一旦改变了内部值，内部值与外部值就没关系了。</div>
+  <div ng-controller="ScopeTrueTestCtrl" ng-init="myProperty='Hello world'">
+    外部: {{myProperty}}
+    <input ng-model="myProperty" />
+    <div scope-true-direct></div>
+  </div>
+
+  <div>Scope {}: 不继承且隔离（内部值与外部值无任何关系）</div>
+  <div ng-controller="ScopeHuaTestCtrl" ng-init="myProperty='Hello world'">
+    外部: {{myProperty}}
+    <input ng-model="myProperty" />
+    <div scope-hua-direct></div>
+  </div>
+
+  <my-tabs>
+    <my-pane title="Hello">
+      <p>Lorem ipsum dolor sit amet</p>
+    </my-pane>
+    <my-pane title="World">
+      <em>Mauris elementum elementum enim at suscipit.</em>
+      <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+    </my-pane>
+  </my-tabs>
+  </body>
+</html>
+</html>

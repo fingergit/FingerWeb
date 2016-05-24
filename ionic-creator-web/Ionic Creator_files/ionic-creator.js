@@ -4574,20 +4574,20 @@
                 e.designer = n
             }
         }
-    }]), n.directive("appComponents", ["$rootScope", "ComponentTypes", "Designer", "DragHandler", function (e, t, n, i) {
+    }]), n.directive("appComponents", ["$rootScope", "ComponentTypes", "Designer", "DragHandler", function ($rootScope, ComponentTypes, Designer, DragHandler) {
         return {
             restrict: "E",
             scope: {component: "="},
             templateUrl: "designer/app-components.tmpl.html",
-            link: function (e, n, o) {
-                n.on("click", "a", function (e) {
+            link: function (scope, element, attrs) {
+                element.on("click", "a", function (e) {
                     return false
-                }), n.on("dblclick", "a", function (e) {
+                }), element.on("dblclick", "a", function (e) {
                     return false
-                }), i.setElement(n);
-                var a = t.getSortedInstances(), r = [];
-                for (var l in a)for (var s = a[l], d = 0; d < s.length; d++)r.push(s[d]);
-                e.componentGroups = a, e.components = r
+                }), DragHandler.setElement(element);
+                var a = ComponentTypes.getSortedInstances(), r = [];
+                for (var idx in a)for (var s = a[idx], d = 0; d < s.length; d++)r.push(s[d]);
+                scope.componentGroups = a, scope.components = r
             }
         }
     }]), n.directive("focusMe", ["$timeout", "$parse", function (e, t) {

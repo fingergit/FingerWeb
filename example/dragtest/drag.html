@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽测试</title>
+
+    <style type="text/css">
+        #dropHere{
+            width: 400px;
+            height: 400px;
+            background: #0c60ee;
+        }
+        #dragIcon{
+            position: absolute;
+            left: -5000px;
+            display: block;
+        }
+        iframe{
+            width: 400px;
+            height: 400px;
+            border: none;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            function drag(e) {
+                var text = e.target.getAttribute('builddate');
+                e.dataTransfer.setData('text/plain', text);
+                e.dataTransfer.setDragImage(document.getElementById('dragIcon'), 0, 0);
+            }
+
+            function drop(e) {
+                tmpData = e.dataTransfer.getData('text/plain');
+                e.target.innerText = tmpData;
+            }
+
+            function drop2(e) {
+                tmpData = e.dataTransfer.getData('text/plain');
+                if (dropInSubDrop){
+                    subDrop.innerText = tmpData;
+                }
+                else{
+                    dropText.innerText = tmpData;
+                }
+            }
+
+            function dragover(e) {
+                e.stopPropagation(); // 不再派发事件。终止事件在传播过程的捕获、目标处理或起泡阶段进一步传播。调用该方法后，该节点上处理该事件的处理程序将被调用，事件不再被分派到其他节点。
+                e.preventDefault();
+            }
+
+            function dragover2(e) {
+                e.stopPropagation(); // 不再派发事件。终止事件在传播过程的捕获、目标处理或起泡阶段进一步传播。调用该方法后，该节点上处理该事件的处理程序将被调用，事件不再被分派到其他节点。
+                e.preventDefault();
+
+                var top = getY(subDrop);
+                var left = getX(subDrop);
+                var ptX = e.pageX, ptY = e.pageY;
+//                console.log("光标位置: " + e.pageX + " " + e.pageY);
+//                console.log("left: " + left + " top: " + top);
+
+                if (ptX >= left && ptY >= top && ptX < left + 100 && ptY < top + 100){
+                    console.log('drop in subDrop');
+                    dropInSubDrop = true;
+                }
+                else{
+                    dropInSubDrop = false;
+                }
+
+            }
+
+            var dragSource = document.getElementById('dragSource');
+            dragSource.addEventListener('dragstart', drag, false);
+
+            var dropTarget = document.getElementById('dropHere');
+
+            dropTarget.addEventListener('drop', drop, false);
+            dropTarget.addEventListener('dragover', dragover);
+
+            var dropFrameDoc = window.frames['dropFrame'].document;
+            var dropInFrame = dropFrameDoc.getElementById('dropInFrame');
+            var dropText = dropFrameDoc.getElementById('dropText');
+            var subDrop = dropFrameDoc.getElementById('subDrop');
+            var dropInSubDrop = false;
+            dropInFrame.addEventListener('drop', drop2, false);
+            dropInFrame.addEventListener('dragover', dragover2);
+
+            function getX(obj){
+                var parObj=obj;
+                var left=obj.offsetLeft;
+                while(parObj=parObj.offsetParent){
+                    left+=parObj.offsetLeft;
+                }
+                return left;
+            }
+
+            function getY(obj){
+                var parObj=obj;
+                var top=obj.offsetTop;
+                while(parObj = parObj.offsetParent){
+                    top+=parObj.offsetTop;
+                }
+                return top;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="dragSource" builddate="2012" draggable="true">拖拽我</div>
+    <div id="dropHere"></div>
+
+    <div>Drop到iFrame中: </div>
+    <iframe src="dropframe.html" name="dropFrame" scrolling="no">
+    </iframe>
+    <img src="ic_user.png" id="dragIcon">
+</body>
+</html>

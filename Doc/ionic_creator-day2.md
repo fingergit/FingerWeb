@@ -17,31 +17,39 @@
 1. 组件定义
    先来看一个组件在html中的定义：
    ```
-   <li ng-repeat="component in components" data-component-type="heading"
-       draggable="true" class="">
-       <a ng-click="controlClicked(component)">
-       <div class="component-content">
-           <!-- ngIf: component.data.iconUrl --><span
-               ng-if="component.data.iconUrl"
-               class="icon heading"
-               ng-class="component.type"></span>
-           <!-- end ngIf: component.data.iconUrl -->
-           <span>Heading</span>
-       </div>
-       </a>
-   </li>
+   <app-components class="td-ftw">
+   ...
+   <ul style="width:253px;">
+       <li ng-repeat="component in components" data-component-type="heading"
+           draggable="true" class="">
+           <a ng-click="controlClicked(component)">
+           <div class="component-content">
+               <!-- ngIf: component.data.iconUrl --><span
+                   ng-if="component.data.iconUrl"
+                   class="icon heading"
+                   ng-class="component.type"></span>
+               <!-- end ngIf: component.data.iconUrl -->
+               <span>Heading</span>
+           </div>
+           </a>
+       </li>
+   ...
+   </ul>
+   </app-components>
    ```
 
    从上以代码可以得到以下信息：
-   - 在js中，组件位于名为components的数组中。
+   - js定义了appComponents指令。
+   - 在js中，所有组件位于名为components的数组中。
    - 每个组件都有一个类型标识`data-component-type`，上面的代码中，表示组件为标题(heading)组件。
    - 组件是否可以拖拽，通过`draggable`属性来定义。
    - 当鼠标按下时，会调用函数`controlClicked(component)`。实际上，上函数并未实现。
-
-   真正的拖拽操作是由ionic的drag服务来完成的。
 
 1. 鼠标移到组件上时图像缩放效果的实现
 
    参见example中的zoom.html例子。
 
-1.
+1. 拖拽流程-appComponents指令中添加。
+   在appComponents指令中，用到了`DragHandler` Factory，通过Factory的`setElement`，为每个element设置了`mousedown`、`touchstart`、`dragstart`、`dragend`这些拖拽相关的事件。
+
+   关于html5中的拖拽事件，参见http://jingyan.baidu.com/article/1974b289a013d4f4b1f77411.html
