@@ -1,29 +1,122 @@
 <!DOCTYPE html>
 <!-- saved from url=(0053)https://creator.ionic.io/frame.html?ionicplatform=ios -->
-<html ng-app="ionic.creator.frameApp"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+<html ng-app="ionic.creator.frameApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @charset "UTF-8";
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+
+        ng\:form {
+            display: block;
+        }
+
+        .ng-animate-shim {
+            visibility: hidden;
+        }
+
+        .ng-anchor {
+            position: absolute;
+        }
+    </style>
 
     <link href="./frame.css" rel="stylesheet">
     <link id="ionicstyle" rel="stylesheet" href="./ionic.css">
-    
+
     <script src="./jquery-1.9.1.min.js"></script>
     <script src="./ionic.bundle.js"></script>
     <script src="./ionic.custom.js"></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function(event) {
+        document.addEventListener("DOMContentLoaded", function (event) {
 
-        function checkCSS(){
-          if(window.injectCSS){
-            window.injectCSS();
-          }else{
+            function checkCSS() {
+                if (window.injectCSS) {
+                    window.injectCSS();
+                } else {
+                    setTimeout(checkCSS, 100);
+                }
+            }
+
             setTimeout(checkCSS, 100);
-          }
-        }
-        setTimeout(checkCSS, 100);
-      });
+        });
     </script>
 
     <link href="./css(1)" rel="stylesheet" type="text/css">
 
-  <link id="android-default-font" rel="text/css" href="https://creator.ionic.io/css/android-default-font.css"><link id="ios-default-font" rel="text/css" href="https://creator.ionic.io/css/ios-default-font.css"></head>
-  <body animation="no-animation" data-tab-disabled="true" class="grade-a platform-browser platform-ios platform-ready header-hack"><div data-componentid="app1" data-tap-disabled="true"><div data-componentid="nav1" data-tap-disabled="true"><ion-nav-bar class="bar-stable nav-bar-container" nav-bar-transition="ios"><ion-nav-back-button class="hide"></ion-nav-back-button><div class="nav-bar-block" nav-bar="cached"><ion-header-bar class="bar-stable bar bar-header" align-title="center"><button class="button back-button hide buttons button-icon icon ion-ios-arrow-back header-item" ng-click="$ionicGoBack()">Back</button><div class="title title-center header-item"></div></ion-header-bar></div><div class="nav-bar-block" nav-bar="active"><ion-header-bar class="bar-stable bar bar-header" align-title="center"><button class="button back-button hide buttons button-icon icon ion-ios-arrow-back header-item" ng-click="$ionicGoBack()">Back</button><div class="title title-center header-item"></div></ion-header-bar></div></ion-nav-bar><ion-nav-view class="view-container" nav-view-transition="ios"><ion-view id="page1" class="pane" data-componentid="page1" data-tap-disabled="true"><ion-tabs class="tabs-stable tabs-icon-top  tabs-bottom tabs-standard" id="tabsController-tabs1" data-componentid="null" data-tap-disabled="true"><div class="tab-nav tabs ic-selected" data-componentid="tabs1"><ion-tab icon="ion-ios-camera" id="tabsController-tab1" class=" " data-componentid="null" data-tap-disabled="true"></ion-tab><ion-tab icon="ion-ios-cart" id="tabsController-tab2" class=" " data-componentid="null" data-tap-disabled="true"></ion-tab><ion-tab icon="ion-ios-cloud" id="tabsController-tab3" class=" " data-componentid="null" data-tap-disabled="true"></ion-tab><a ng-class="{&#39;tab-item-active&#39;: isTabActive(), &#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden()}" ng-disabled="disabled()" class="tab-item tab-item-active" icon="ion-ios-camera" data-componentid="tab1"><!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() --><i class="icon ion-ios-camera" ng-if="getIconOn() &amp;&amp; isTabActive()"></i><!-- end ngIf: getIconOn() && isTabActive() --><!-- ngIf: getIconOff() && !isTabActive() --><span class="tab-title ng-binding" ng-bind-html="title">Camera Tab</span></a><a ng-class="{&#39;tab-item-active&#39;: isTabActive(), &#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden()}" ng-disabled="disabled()" class=" tab-item" icon="ion-ios-cart" data-componentid="tab2"><!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() --><!-- ngIf: getIconOff() && !isTabActive() --><i class="icon ion-ios-cart" ng-if="getIconOff() &amp;&amp; !isTabActive()"></i><!-- end ngIf: getIconOff() && !isTabActive() --><span class="tab-title ng-binding" ng-bind-html="title">Cart Tab</span></a><a ng-class="{&#39;tab-item-active&#39;: isTabActive(), &#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden()}" ng-disabled="disabled()" class=" tab-item" icon="ion-ios-cloud" data-componentid="tab3"><!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() --><!-- ngIf: getIconOff() && !isTabActive() --><i class="icon ion-ios-cloud" ng-if="getIconOff() &amp;&amp; !isTabActive()"></i><!-- end ngIf: getIconOff() && !isTabActive() --><span class="tab-title ng-binding" ng-bind-html="title">Cloud Tab</span></a></div><ion-nav-view name="tab1" class="view-container tab-content" nav-view="active" nav-view-transition="ios"></ion-nav-view></ion-tabs></ion-view></ion-nav-view></div></div><div class="ic-select-box" style="width: 320px; height: 49px; transform: translate3d(0px, 519px, 0px);"><div><div class="control-container"><a class="select-duplicate" href="https://creator.ionic.io/frame.html?ionicplatform=ios#"></a><a class="select-remove" href="https://creator.ionic.io/frame.html?ionicplatform=ios#"></a></div></div></div></body></html>
+    <link id="android-default-font" rel="text/css" href="https://creator.ionic.io/css/android-default-font.css">
+    <link id="ios-default-font" rel="text/css" href="https://creator.ionic.io/css/ios-default-font.css">
+</head>
+<body animation="no-animation" data-tab-disabled="true"
+      class="grade-a platform-browser platform-ios platform-ready header-hack">
+<div data-componentid="app1" data-tap-disabled="true">
+    <div data-componentid="nav1" data-tap-disabled="true">
+        <ion-nav-bar class="bar-stable nav-bar-container" nav-bar-transition="ios">
+            <ion-nav-back-button class="hide"></ion-nav-back-button>
+            <div class="nav-bar-block" nav-bar="cached">
+                <ion-header-bar class="bar-stable bar bar-header" align-title="center">
+                    <button class="button back-button hide buttons button-icon icon ion-ios-arrow-back header-item"
+                            ng-click="$ionicGoBack()">Back
+                    </button>
+                    <div class="title title-center header-item"></div>
+                </ion-header-bar>
+            </div>
+            <div class="nav-bar-block" nav-bar="active">
+                <ion-header-bar class="bar-stable bar bar-header" align-title="center">
+                    <button class="button back-button hide buttons button-icon icon ion-ios-arrow-back header-item"
+                            ng-click="$ionicGoBack()">Back
+                    </button>
+                    <div class="title title-center header-item"></div>
+                </ion-header-bar>
+            </div>
+        </ion-nav-bar>
+        <ion-nav-view class="view-container" nav-view-transition="ios">
+            <ion-view id="page1" class="pane" data-componentid="page1" data-tap-disabled="true">
+                <ion-tabs class="tabs-stable tabs-icon-top  tabs-bottom tabs-standard" id="tabsController-tabs1"
+                          data-componentid="null" data-tap-disabled="true">
+                    <div class="tab-nav tabs ic-selected" data-componentid="tabs1">
+                        <ion-tab icon="ion-ios-camera" id="tabsController-tab1" class=" " data-componentid="null"
+                                 data-tap-disabled="true"></ion-tab>
+                        <ion-tab icon="ion-ios-cart" id="tabsController-tab2" class=" " data-componentid="null"
+                                 data-tap-disabled="true"></ion-tab>
+                        <ion-tab icon="ion-ios-cloud" id="tabsController-tab3" class=" " data-componentid="null"
+                                 data-tap-disabled="true"></ion-tab>
+                        <a ng-class="{&#39;tab-item-active&#39;: isTabActive(), &#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden()}"
+                           ng-disabled="disabled()" class="tab-item tab-item-active" icon="ion-ios-camera"
+                           data-componentid="tab1"><!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() --><i
+                                class="icon ion-ios-camera" ng-if="getIconOn() &amp;&amp; isTabActive()"></i>
+                            <!-- end ngIf: getIconOn() && isTabActive() --><!-- ngIf: getIconOff() && !isTabActive() --><span
+                                    class="tab-title ng-binding" ng-bind-html="title">Camera Tab</span></a><a
+                            ng-class="{&#39;tab-item-active&#39;: isTabActive(), &#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden()}"
+                            ng-disabled="disabled()" class=" tab-item" icon="ion-ios-cart" data-componentid="tab2">
+                        <!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() -->
+                        <!-- ngIf: getIconOff() && !isTabActive() --><i class="icon ion-ios-cart"
+                                                                        ng-if="getIconOff() &amp;&amp; !isTabActive()"></i>
+                        <!-- end ngIf: getIconOff() && !isTabActive() --><span class="tab-title ng-binding"
+                                                                               ng-bind-html="title">Cart Tab</span></a><a
+                            ng-class="{&#39;tab-item-active&#39;: isTabActive(), &#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden()}"
+                            ng-disabled="disabled()" class=" tab-item" icon="ion-ios-cloud" data-componentid="tab3">
+                        <!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() -->
+                        <!-- ngIf: getIconOff() && !isTabActive() --><i class="icon ion-ios-cloud"
+                                                                        ng-if="getIconOff() &amp;&amp; !isTabActive()"></i>
+                        <!-- end ngIf: getIconOff() && !isTabActive() --><span class="tab-title ng-binding"
+                                                                               ng-bind-html="title">Cloud Tab</span></a>
+                    </div>
+                    <ion-nav-view name="tab1" class="view-container tab-content" nav-view="active"
+                                  nav-view-transition="ios"></ion-nav-view>
+                </ion-tabs>
+            </ion-view>
+        </ion-nav-view>
+    </div>
+</div>
+<div class="ic-select-box" style="width: 320px; height: 49px; transform: translate3d(0px, 519px, 0px);">
+    <div>
+        <div class="control-container"><a class="select-duplicate"
+                                          href="https://creator.ionic.io/frame.html?ionicplatform=ios#"></a><a
+                class="select-remove" href="https://creator.ionic.io/frame.html?ionicplatform=ios#"></a></div>
+    </div>
+</div>
+</body>
+</html>

@@ -129,6 +129,8 @@
 
    视图中的js操作基本位于ionic-creator.js文件中。
 
+   在编辑区，引用的一个iframe，指向frame.html，这个frame.html中使用的ng-app为`ionic.creator.frameApp`
+
 ### 左侧Pages面板及与编辑区的交互
 1. 左侧面板
 
@@ -154,7 +156,7 @@
     ```
 
     - 点击切换编辑区内容的操作
-
+      点击时调用select($event, 'page2')函数，page2为
 
 ## 自定义指令
 - autofocus

@@ -4896,7 +4896,8 @@
                     var n, r = i.getById(t);
                     if (r) {
                         r.isPage && o.selectPage(r), i.selectById(t);
-                        for (var l = Array.prototype.slice.call(a[0].querySelectorAll(".selected")), s = 0; s < l.length; s++)$(l[s]).removeClass("selected");
+                        for (var l = Array.prototype.slice.call(a[0].querySelectorAll(".selected")), s = 0; s < l.length; s++)
+                            $(l[s]).removeClass("selected");
                         n = $(e.target).closest("li"), n.addClass("selected")
                     }
                 }, p()

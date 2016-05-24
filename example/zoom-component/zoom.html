@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示鼠标移到图片上时，图片放大</title>
+    <style type="text/css">
+        a .icn:before,a .icn:after{
+            background: no-repeat transparent center top url("img/components-sprite.png");
+            background-position: center -800px;
+            display: block;
+            background-size: 90px;
+            width: 90px;
+            height: 50px;
+            transition-property: opacity, transform;
+            transform: scale3d(1, 1, 1);
+            transition-duration: .25s;
+            transition-timing-function: linear, cubic-bezier(0.33, 2, 0.66, 1);
+            content: '';
+            /*让before和after图像重合*/
+            position: absolute;
+            left: 0;
+        }
+        a .icn:before{
+        }
+        a .icn:after{
+            background-position: center -850px;
+            opacity: 0;
+        }
+        a:hover .icn:after,a:active .icn:after{
+            opacity: 1;
+        }
+        a:hover .icn:before,a:hover .icn:after{
+            transform: scale3d(1.5, 1.5, 1);
+        }
+        a:active .icn:before,a:active .icn:after{
+            transform: scale3d(1.1, 1.1, 1);
+        }
+    </style>
+
+
+    </head>
+<body>
+    <div>演示鼠标移上与移开时的动画效果</div>
+    <div>关键点：
+        <ul><li>使用transition-property、transform、transition-duration、transition-timing-function完成动画效果。</li>
+            <li>使用before和after伪属性表示正确和鼠标移上去时两个不同的图</li>
+            <li>通过position: absolute将before和after元素位置重合。</li>
+        </ul>
+    </div>
+    <div class="component">
+        <a><span class="icn"></span></a>
+    </div>
+</body>
+</html>
