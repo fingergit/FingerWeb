@@ -6,6 +6,7 @@ https://docs.angularjs.org/tutorial
 今天开始系统学习angularjs，要想做好web app，不系统学习一下发现好多问题很难理解。教程来自官方，这里记录一下学习笔记。
 
 完成此教程可以学到的知识：
+
 - 如何搭建可在所有浏览器中运行的完整的Web App。
 - 数据模型如何与视图绑定。
 - 如何进行单元测试(使用Karma)和终端测试(使用Protractor)。
@@ -20,6 +21,7 @@ https://docs.angularjs.org/tutorial
 - 安装Node.js。下载地址: http://nodejs.org/download/
 - 安装java。下载地址: https://www.java.com/en/download/help/download_options.xml
 - 下载教程工程:
+
   ```
   git clone --depth=14 https://github.com/angular/angular-phonecat.git
   ```
@@ -44,7 +46,7 @@ https://docs.angularjs.org/tutorial
 ### 单元测试步骤
 - 执行`npm test`，会自动打开Chrome、FireFox并执行所有单元测试。
 
-测试结果会显示在命令行窗口中。
+  测试结果会显示在命令行窗口中。
 > 只要不关闭窗口，当项目的所有js文件变化时，会实时重新进行单元测试。
 
 ### E2E测试步骤
@@ -113,6 +115,7 @@ https://docs.angularjs.org/tutorial
 ## 第二节 Static Template(略过)
 ## 第三节 Angular Templates
 - ngRepeat指令:
+
   ```
   <html ng-app="phonecatApp">
   <head>
@@ -159,6 +162,7 @@ https://docs.angularjs.org/tutorial
   });
   ```
 - 单元测试代码
+
   ```
   describe('PhoneListController', function() {
 
@@ -206,6 +210,7 @@ https://docs.angularjs.org/tutorial
   - 在template中，component默认使用`$ctrl`作为controller的别名。
 
 - 组件测试
+
   ```
   describe('phoneList', function() {
     beforeEach(module('phonecatApp'));
@@ -224,6 +229,7 @@ https://docs.angularjs.org/tutorial
 - 可以通过子模块和主模块来实现模块复用。
 
   子模块定义:
+  
   ```
   angular.module('phoneList', []);
   ```
@@ -299,10 +305,13 @@ https://docs.angularjs.org/tutorial
 
 # 第九节 Templating Links & Images
 - 对于img的src，要使用ngSrc指令：
+
   ```
   <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
   ```
+  
   而不能用
+  
   ```
   <img src="{{phone.imageUrl}}" alt="{{phone.name}}" />
   ```
