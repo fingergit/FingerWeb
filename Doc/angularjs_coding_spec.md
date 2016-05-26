@@ -6,3 +6,4 @@
    - 组件: .comp.js
    - 控制器: .ctrl.js
    - 指令: .dire.js
+   - filter: .filt.js

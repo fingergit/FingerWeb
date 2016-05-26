@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype和Constructor</title>
+
+    <script type="text/javascript">
+
+        // > 类型原型有名为a的属性，对象本身又有一个名为a的属性，则在访问这个对象的属性a时，对象本身的属性“覆盖”了原型属性，但是原型属性并没有消失，当你用delete运算符将对象本身的属性a删除时，对象的原型属性就恢复了可见性。利用这个特性，可以为对象的属性设定默认值，例如：
+        function Point(x, y)
+        {
+            if(x) this.x = x;
+            if(y) this.y = y;
+        }
+        Point.prototype.x = 0;
+        Point.prototype.y = 0;
+
+        var p1 = new Point;
+        var p2 = new Point(1,2);
+
+        console.log("p2.x=" + p2.x);
+        delete p2.x;
+        console.log("p2.x=" + p2.x);
+
+        // >
+        function Empty() {}
+        console.log(Function.prototype, Function.__proto__);
+    </script>
+
+</head>
+<body>
+
+<div>
+    <ul>
+        <li>直接声明的函数 拥有prototype这个属性，而new 构造出来的函数不存在prototype这个属性象。</li>
+    </ul>
+</div>
+</body>
+</html>

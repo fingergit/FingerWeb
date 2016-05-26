@@ -7253,7 +7253,7 @@
                 Intercom("update", e)
             }, intercomBoot: function (e) {
                 Intercom("shutdown");
-                var t = {app_id: "yqjddt6b", user_id: e.id, name: e.name, email: e.email, created_at: e.date_joined};
+                var t = {app_id: "yqjddt6b.js", user_id: e.id, name: e.name, email: e.email, created_at: e.date_joined};
                 (e.subscription && e.subscription.active || e.teams.length > 0) && (e.subscription && (t.plan_id = e.subscription.plan_id_string), t.widget = {activator: "#IntercomDefaultWidget"}), Intercom("boot", t)
             }
         }

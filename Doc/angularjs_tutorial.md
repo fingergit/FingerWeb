@@ -320,7 +320,7 @@ https://docs.angularjs.org/tutorial
   > 但经过实际测试，使用src也能找到真正的地址(laj)。
 
 # 第十节 路由和多视图
-- 添加路由模块: ngRoute
+- 安装路由模块: ngRoute
 
   bower.json:
   ```
@@ -339,3 +339,129 @@ https://docs.angularjs.org/tutorial
 
   > Application routes in Angular are declared via the $routeProvider, which is the provider of the $route service.
 
+# 第十一节 More Templating(略)
+
+# 第十二节 Custom Filters
+
+- filter定义:
+
+  > filter更像是格式化，传入一个参数，对传入的参数进行处理后，返回一个格式化后的数据。真正显示的是格式化后的数据。比如传入一个时间戳，返回一个时间字符串。
+
+  ```
+  angular.
+    module('core').
+    filter('checkmark', function() {
+      return function(input) {
+        return input ? '\u2713' : '\u2718';
+      };
+    });
+  ```
+
+  此函数如果为true，返回对号标记，false返回叉号。
+
+- filter使用
+
+  ```
+  {{expression | filter}}
+  ```
+
+  前一个表达式返回值用于后面filter的函数，显示filter的返回值。如：
+
+  ```
+  <dd>{{$ctrl.phone.connectivity.gps | checkmark}}</dd>
+  ```
+
+- 常用filter:
+
+  - `{{1459461289000 | date:'MM/dd/yyyy @ h:mma'}}`
+  - `{{1459461289000 | date}}`
+  - `{{{foo: 'bar', baz: 42} | json}}`
+  - `{{'lower cap string' | uppercase}}`
+
+
+# 第十三节 Event Handlers
+
+- 常用指令
+  - ngClick
+  - ngDblclick
+  - ngDblclick
+  - ngFocus
+  - ngBlur
+
+
+# 第十四节 REST and Custom Services
+
+- RESTful功能由ngResource模块提供，需要安装
+  - bower.json:
+    ```
+    "dependencies": {
+        "angular-resource": "1.5.x",
+      }
+    ```
+  - `npm install`
+
+- 注入ngResource:
+
+  ```
+  angular.module('core.phone', ['ngResource']);
+  ```
+- 使用ngResource提供的服务，创建自定义服务
+
+  ```
+  angular.
+    module('core.phone').
+    factory('Phone', ['$resource',
+      function($resource) {
+        return $resource('phones/:phoneId.json', {}, {
+          query: {
+            method: 'GET',
+            params: {phoneId: 'phones'},
+            isArray: true
+          }
+        });
+      }
+    ]);
+  ```
+
+  这里创建了一个`Phone`服务，封装http请求。
+
+- 自定义服务使用
+
+  ```
+  this.phones = Phone.query();
+  ```
+
+  看起来是同步返回，实际返回的是一个future对象，由于angular会两向数据同步，等数据真正请求到后，会自动更新视图。当然，也可以为它增加一个回调函数：
+
+  ```
+  self.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
+            self.setImage(phone.images[0]);
+          });
+  ```
+
+   ```js
+   var User = $resource('/user/:userId', {userId:'@id'});
+   var user = User.get({userId:123}, function() {
+     user.abc = true;
+     user.$save();
+   });
+   ```
+
+
+# 第十五节 动画
+
+  参考https://docs.angularjs.org/guide/animations
+
+- 使用ngAnimate模块
+  - bower.json:
+
+    ```
+    "dependencies": {
+        "angular-animate": "1.5.x",
+        "jquery": "2.2.x"
+      }
+    ```
+
+  - `npm install`
+
+- ngAnimate 1.5需要2.1版本以上的jQuery，jquery.js要在angular.js之前引用
