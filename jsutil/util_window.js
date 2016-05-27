@@ -14,10 +14,16 @@
  * limitations under the License.
  */
 
-/**
- * Created by yy on 2016/5/26.
- */
+/** 获取窗口的宽度。**/
+function width() {
+    return window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+}
 
-function delStr(str, from, length) {
-    str.substring(0, x) + str.substring(x + length, str.length);
+/** 获取窗口的高度。**/
+function height() {
+    return window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
 }

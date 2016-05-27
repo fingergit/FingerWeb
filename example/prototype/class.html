@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype和Constructor</title>
+
+    <script type="text/javascript">
+
+        class Person{
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+
+            hello(){
+                console.log("hello, " + this.name);
+            }
+        }
+
+        class Student extends Person{
+            constructor(name, age, score){
+                super(name, age);
+                this.score = score;
+            }
+
+            grade(){
+                console.log('student name: ' + this.name + " score: " + this.score);
+            }
+        }
+
+        var student = new Student('zs', 20, 100);
+        student.grade();
+    </script>
+
+</head>
+<body>
+
+<div>
+    <ul>
+        <li>测试新关键字class。</li>
+    </ul>
+</div>
+</body>
+</html>

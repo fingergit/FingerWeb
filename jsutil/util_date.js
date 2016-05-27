@@ -15,9 +15,15 @@
  */
 
 /**
- * Created by yy on 2016/5/26.
+ * 获取日期中的日。
+ * @param date
+ * @returns {number}
  */
-
-function delStr(str, from, length) {
-    str.substring(0, x) + str.substring(x + length, str.length);
+function getDay(date) {
+    return date.getDate();
 }
+
+function getMonth(date) {
+    return date.getMonth()+1;
+}
+

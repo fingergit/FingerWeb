@@ -15,9 +15,15 @@
  */
 
 /**
- * Created by yy on 2016/5/26.
+ * 判断两个数是否相等。
+ * @param a
+ * @param b
+ * @returns {boolean}
  */
+function isEqual(a, b) {
+    return Math.abs(a - b) < 0.0000001;
+}
 
-function delStr(str, from, length) {
-    str.substring(0, x) + str.substring(x + length, str.length);
+function isObject(obj) {
+    return (typeof obj === "object");
 }

@@ -25,6 +25,69 @@
         // >
         function Empty() {}
         console.log(Function.prototype, Function.__proto__);
+        console.log("height: " + window.innerHeight);
+
+        console.log('这是多行字符串');
+
+        function sortList() {
+            var list = document.getElementById("test-list");
+            var children = list.children;
+            var childAry = new Array();
+            for (var key in children){
+                var elem = children[key];
+                console.log(typeof elem);
+                if (typeof elem === "object"){
+                    childAry.push(elem);
+                }
+            }
+            console.log(childAry.length);
+            console.log(childAry);
+            childAry.sort(function (obj1, obj2) {
+                return obj1.innerText > obj2.innerText;
+            });
+            list.innerHTML = "";
+            for (var key in childAry){
+                var elem = childAry[key];
+                console.log(typeof elem);
+                list.appendChild(elem);
+            }
+        }
+
+        var hoverElem = null;
+        function onMouseOver(e) {
+            var targ = null;
+            if (!e) {
+                var e = window.event;
+            }
+            // IE下,event对象有srcElement属性,但是没有target属性;Firefox下,event对象有target属性,但是没有srcElement属性.但他们的作用是相当的
+            if (e.target) {
+                targ = e.target;
+            }
+            else if (e.srcElement) { // e.srcElement: 当前事件的源
+                targ = e.srcElement;
+            }
+            // 1. Element, 2. Attr, 3. Text
+            if (targ.nodeType == 3) { // defeat Safari bug
+                targ = targ.parentNode;
+            }
+
+            var tname = targ.innerText;
+
+            var mouseOver = document.getElementById("showMouseOver");
+            mouseOver.innerText = tname;
+
+            if (hoverElem && hoverElem != targ){
+                hoverElem.style.color = "#000";
+            }
+            hoverElem = targ;
+            hoverElem.style.color = "#F00";
+        }
+
+        function onMouseLeave(event) {
+            if (hoverElem){
+                hoverElem.style.color = "#000";
+            }
+        }
     </script>
 
 </head>
@@ -34,6 +97,20 @@
     <ul>
         <li>直接声明的函数 拥有prototype这个属性，而new 构造出来的函数不存在prototype这个属性象。</li>
     </ul>
+
+    <ol id="test-list" onmouseover="onMouseOver(event)" onmouseleave="onMouseLeave(event)">
+        <li class="lang">Scheme</li>
+        <li class="lang">JavaScript</li>
+        <li class="lang">Python</li>
+        <li class="lang">Ruby</li>
+        <li class="lang">Haskell</li>
+    </ol>
+
+    <button id="sort" onclick="sortList()">sort</button>
+
+    <div id="showMouseOver"></div>
+
+
 </div>
 </body>
 </html>
