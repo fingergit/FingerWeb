@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面板布局拖拽</title>
+    <script src="jquery-1.12.4.js"></script>
+    <script src="lodash.min.js"></script>
+
+    <style type="text/css">
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .bodywrapper{
+            display: -moz-box; /* Firefox */
+            -moz-box-orient:vertical;
+
+            display: -webkit-box; /* Safari and Chrome */
+            -webkit-box-orient:vertical;
+
+            width: 100%;
+            height: 100vh;
+        }
+        .header{
+            width: 100%;
+            height: 40px;
+            background: #5a5c62;
+            color: #fff;
+        }
+
+        .content{
+            display: -moz-box; /* Firefox */
+            display: -webkit-box; /* Safari and Chrome */
+            width: 100%;
+
+            -moz-box-flex:0.8; /* Firefox */
+            -webkit-box-flex:0.8; /* Safari and Chrome */
+        }
+        .edit{
+            -moz-box-flex:0.5; /* Firefox */
+            -webkit-box-flex:0.5; /* Safari and Chrome */
+            background: #3E4C5F;
+            color: white;
+        }
+        .left{
+            background: #2ecd70;
+            -moz-box-flex:0.2; /* Firefox */
+            -webkit-box-flex:0.2; /* Safari and Chrome */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .right{
+            background: #0000A2;
+            -moz-box-flex:0.3; /* Firefox */
+            -webkit-box-flex:0.3; /* Safari and Chrome */
+            max-width: 100px;
+            color: #fff;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .footer{
+            width: 100%;
+            background: #6B72E6;
+            color: #fff;
+
+            -moz-box-flex:0.2; /* Firefox */
+            -webkit-box-flex:0.2; /* Safari and Chrome */
+        }
+
+        .splitter{
+            background: #b6c2c9;
+            z-index: 9999;
+        }
+
+        .splitter-h{
+            width: 10px;
+            cursor: ew-resize;
+        }
+
+        .splitter-v{
+            width: 100%;
+            height: 10px;
+            cursor: ns-resize;
+        }
+
+        .mask{
+            position: absolute;
+            /*z-index: 1;*/
+            background: #b6c2c9;
+            opacity: 0.2;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="bodywrapper">
+        <header class="header">工具栏</header>
+        <div class="content">
+            <aside class="panel left">左侧边栏
+                <table width="100%">
+                    <tr>
+                        <td>姓名</td>
+                        <td>性别</td>
+                        <td>年龄</td>
+                    </tr>
+                    <tr>
+                        <td>张三</td>
+                        <td>男</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>张三</td>
+                        <td>男</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>张三</td>
+                        <td>男</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>张三</td>
+                        <td>男</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>张三</td>
+                        <td>男</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>张三</td>
+                        <td>男</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>张三</td>
+                        <td>男</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>张三</td>
+                        <td>男</td>
+                        <td>20</td>
+                    </tr>
+                </table>
+            </aside>
+            <div class="splitter splitter-h"></div>
+            <div class="panel edit">编辑区
+                <iframe src="http://www.163.com" frameborder="0" allowtransparency="true" width="100%" height="100%">
+
+                </iframe>
+            </div>
+            <div class="splitter splitter-h"></div>
+            <aside class="panel right">右侧边栏</aside>
+        </div>
+        <div class="splitter splitter-v"></div>
+        <aside class="footer">底部边栏</aside>
+    </div>
+
+</body>
+<script>
+$(function () {
+
+
+    var splitting = false;
+    var splitterElem = $(".splitter");
+    var splittingPt = {x: 0, y: 0};
+    var clientSize = {w: window.innerWidth, h: window.innerHeight};
+    var containerSize = {w: 0, h: 0};
+    var splittingRatio = {prev: 0, next: 0};
+    var splittingWidth = {prev: 0, next: 0};
+    var totalSplittingRatio = 0;
+    var curSplitter = null;
+    var maskA, maskB;
+    splitterElem.on("mousedown touchstart", function (e) {
+        console.log("splitting start");
+        splitting = true;
+        splittingPt.x = e.clientX;
+        splittingPt.y = e.clientY;
+        curSplitter = $(this);
+
+        if(window.captureEvents)
+        {
+            window.captureEvents(Event.MOUSEMOVE|Event.MOUSEUP);
+        }
+
+        var parent = $(this).parent();
+        var isHorz = $(this).hasClass("splitter-h");
+
+        containerSize.w = parent.width();
+        containerSize.h = parent.height();
+        console.log("Container: x: " + containerSize.w + " y: " + containerSize.h);
+
+        var prevElem = $(this).prev();
+        var nextElem = $(this).next();
+        console.log("prevElem, x:" +　prevElem.position().left + " width: " + prevElem.width());
+
+        splittingWidth.prev = isHorz ? prevElem.width(): prevElem.height();
+        splittingWidth.next = isHorz ? nextElem.width(): nextElem.height();
+
+        markA = $("<div class='mask'></div>");
+        markA.css("width", prevElem.width() + "px");
+        markA.css("height", prevElem.height() + "px");
+        markA.css("left", prevElem.position().left);
+        markA.css("top", prevElem.position().top);
+
+        markB = markA.clone(true);
+        markB.css("width", nextElem.width() + "px");
+        markB.css("height", nextElem.height() + "px");
+        markB.css("left", nextElem.position().left);
+        markB.css("top", nextElem.position().top);
+
+        markA.appendTo(prevElem);
+        markB.appendTo(nextElem);
+
+        var flex = ['-moz-box-flex', '-webkit-box-flex', 'box-flex'];
+        $.each(flex, function (index, value) {
+            console.log(prevElem.css(value));
+
+            if (!splittingRatio.prev){
+                splittingRatio.prev = prevElem.css(value);
+            }
+            if (!splittingRatio.next){
+                splittingRatio.next = nextElem.css(value);
+            }
+            if (splittingRatio.prev && splittingRatio.next){
+                return false; // 跳出each。
+            }
+        });
+        console.log("" + splittingRatio.prev + " next: " + splittingRatio.next);
+
+
+        totalSplittingRatio = parseFloat(splittingRatio.next) + parseFloat(splittingRatio.prev);
+
+    });
+
+    $("body").on("mousemove touchmove", _.debounce(function (e) {
+        if (!splitting){
+            return;
+        }
+        console.log("splitting, x:" +　e.clientX);
+
+        var isHorz = curSplitter.hasClass("splitter-h");
+
+        var offset = isHorz?(e.clientX - splittingPt.x) : (e.clientY - splittingPt.y);
+
+        var prevElem = curSplitter.prev();
+        var nextElem = curSplitter.next();
+
+//        var prevPos = prevElem.position();
+//        var newRatio = isHorz?(e.clientX - prevPos.left)/containerSize.w : (e.clientY - prevPos.top) / containerSize.h;
+//
+//        console.log("new ratio: " + newRatio);
+
+        var newWidth = Math.round(splittingWidth.prev + offset);
+        var newWidthNext = Math.round(splittingWidth.next - offset);
+        prevElem.css(isHorz?"width":"height", newWidth + "px");
+        console.log(splittingWidth.prev);
+
+        nextElem.css(isHorz?"width":"height", newWidthNext + "px");
+
+        var flex = ['-moz-box-flex', '-webkit-box-flex', 'box-flex'];
+        $.each(flex, function (idx, value) {
+//            prevElem.css(value, newRatio+"");
+//            nextElem.css(value, (totalSplittingRatio-newRatio)+"");
+        })
+    }, 1));
+
+    $("body").on("mouseup touchend", function (e) {
+        console.log("splitting end");
+        splitting = false;
+        var prevElem = $(this).prev();
+        var nextElem = $(this).next();
+
+        markA.remove();
+        markB.remove();
+    })
+});
+</script>
+
+</html>

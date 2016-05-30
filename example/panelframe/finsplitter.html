@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>finsplitter</title>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script src="finsplitter.js"></script>
+
+    <style type="text/css">
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .bodywrapper{
+            display: -moz-box; /* Firefox */
+            -moz-box-orient:vertical;
+
+            display: -webkit-box; /* Safari and Chrome */
+            -webkit-box-orient:vertical;
+
+            width: 100%;
+            height: 100vh;
+        }
+        .header{
+            width: 100%;
+            height: 40px;
+            background: #5a5c62;
+            color: #fff;
+        }
+
+        .content{
+            display: -moz-box; /* Firefox */
+            display: -webkit-box; /* Safari and Chrome */
+            width: 100%;
+
+            -moz-box-flex:0.8; /* Firefox */
+            -webkit-box-flex:0.8; /* Safari and Chrome */
+        }
+        .panel{
+            overflow: hidden;
+            position: relative;
+        }
+        .edit{
+            width: calc(100% - 400px);
+            width: -webkit-calc(100% - 400px);
+            width: -moz-calc(100% - 400px);
+            background: #3E4C5F;
+            color: white;
+        }
+        .left{
+            background: #2ecd70;
+            width: 200px;
+        }
+        .right{
+            background: #0000A2;
+            width: 200px;
+            min-width: 100px;
+            color: #fff;
+        }
+
+        .footer{
+            width: 100%;
+            background: #6B72E6;
+            color: #fff;
+
+            -moz-box-flex:0.2; /* Firefox */
+            -webkit-box-flex:0.2; /* Safari and Chrome */
+        }
+
+        .splitter{
+            background: #b6c2c9;
+            z-index: 9999;
+        }
+
+        .splitter-h{
+            width: 10px;
+        }
+
+        .splitter-v{
+            width: 100%;
+            height: 10px;
+        }
+
+        iframe{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+<body>
+<div class="bodywrapper">
+    <header class="header">工具栏</header>
+    <div class="content">
+        <aside class="panel left">左侧边栏
+            <table width="100%">
+                <tr>
+                    <td>姓名</td>
+                    <td>性别</td>
+                    <td>年龄</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>男</td>
+                    <td>20</td>
+                </tr>
+            </table>
+        </aside>
+        <div class="splitter splitter-h"></div>
+        <div class="panel edit">编辑区
+            <iframe src="http://www.163.com" frameborder="0" allowtransparency="true">
+
+            </iframe>
+        </div>
+        <div class="splitter splitter-h"></div>
+        <aside class="panel right">右侧边栏</aside>
+    </div>
+    <div class="splitter splitter-v"></div>
+    <aside class="footer">底部边栏</aside>
+</div>
+
+</body>
+</html>
