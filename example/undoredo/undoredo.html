@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UndoRedo</title>
+    <script src="actionmanager.js"></script>
+    <script>
+        window.onload = function () {
+            var inputAdd = document.getElementById("add");
+            var result = document.getElementById("result");
+            var btnAdd = document.getElementById("btnAdd");
+            var btnUndo = document.getElementById("undo");
+            var btnRedo = document.getElementById("redo");
+
+            var actionMgr = new ActionManager();
+            btnAdd.onclick = function(){
+                var addValue = inputAdd.value;
+                var action = new MathAction("求和", addValue);
+                actionMgr.addAction(action);
+                result.innerText = g_result;
+            };
+
+            btnUndo.onclick = function () {
+                if (!actionMgr.canUndo()){
+                    alert("不能undo");
+                    return;
+                }
+                actionMgr.undo();
+                result.innerText = g_result;
+            };
+
+            btnRedo.onclick = function () {
+                if (!actionMgr.canRedo()){
+                    alert("不能redo");
+                    return;
+                }
+                actionMgr.redo();
+                result.innerText = g_result;
+            }
+        };
+
+    </script>
+</head>
+<body>
+    <div>
+        <label for="add">加数</label>
+        <input name="add" id="add" type="number">
+    </div>
+    <div><label id="result"></label></div>
+    <button id="btnAdd">添加</button>
+    <button id="undo">Undo</button>
+    <button id="redo">Redo</button>
+
+</body>
+</html>
