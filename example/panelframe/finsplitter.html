@@ -5,6 +5,7 @@
     <title>finsplitter</title>
 
     <script src="jquery-1.12.4.js"></script>
+    <script src="jq-minwidth.js"></script>
     <script src="finsplitter.js"></script>
 
     <style type="text/css">
@@ -12,13 +13,27 @@
             padding: 0;
             margin: 0;
         }
+
+        .splitter{
+            background: #b6c2c9;
+            z-index: 9999;
+        }
+
+        .splitter:hover{
+            background: #b4ceb0;
+        }
+
+        .splitter-h{
+            width: 6px;
+        }
+
+        .splitter-v{
+            width: 100%;
+            height: 6px;
+        }
+
         .bodywrapper{
-            display: -moz-box; /* Firefox */
-            -moz-box-orient:vertical;
-
-            display: -webkit-box; /* Safari and Chrome */
-            -webkit-box-orient:vertical;
-
+            position: relative;
             width: 100%;
             height: 100vh;
         }
@@ -30,21 +45,29 @@
         }
 
         .content{
+            position: relative;
             display: -moz-box; /* Firefox */
             display: -webkit-box; /* Safari and Chrome */
             width: 100%;
-
-            -moz-box-flex:0.8; /* Firefox */
-            -webkit-box-flex:0.8; /* Safari and Chrome */
+            height: -webkit-calc(100vh - 246px);
         }
+
+        .footer{
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: #6B72E6;
+            color: #fff;
+        }
+
         .panel{
             overflow: hidden;
             position: relative;
         }
         .edit{
-            width: calc(100% - 400px);
-            width: -webkit-calc(100% - 400px);
-            width: -moz-calc(100% - 400px);
+            width: calc(100% - 412px);
+            width: -webkit-calc(100% - 412px);
+            width: -moz-calc(100% - 412px);
             background: #3E4C5F;
             color: white;
         }
@@ -57,29 +80,6 @@
             width: 200px;
             min-width: 100px;
             color: #fff;
-        }
-
-        .footer{
-            width: 100%;
-            background: #6B72E6;
-            color: #fff;
-
-            -moz-box-flex:0.2; /* Firefox */
-            -webkit-box-flex:0.2; /* Safari and Chrome */
-        }
-
-        .splitter{
-            background: #b6c2c9;
-            z-index: 9999;
-        }
-
-        .splitter-h{
-            width: 10px;
-        }
-
-        .splitter-v{
-            width: 100%;
-            height: 10px;
         }
 
         iframe{
@@ -98,58 +98,10 @@
     <header class="header">工具栏</header>
     <div class="content">
         <aside class="panel left">左侧边栏
-            <table width="100%">
-                <tr>
-                    <td>姓名</td>
-                    <td>性别</td>
-                    <td>年龄</td>
-                </tr>
-                <tr>
-                    <td>张三</td>
-                    <td>男</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>张三</td>
-                    <td>男</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>张三</td>
-                    <td>男</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>张三</td>
-                    <td>男</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>张三</td>
-                    <td>男</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>张三</td>
-                    <td>男</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>张三</td>
-                    <td>男</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>张三</td>
-                    <td>男</td>
-                    <td>20</td>
-                </tr>
-            </table>
         </aside>
         <div class="splitter splitter-h"></div>
         <div class="panel edit">编辑区
             <iframe src="http://www.163.com" frameborder="0" allowtransparency="true">
-
             </iframe>
         </div>
         <div class="splitter splitter-h"></div>

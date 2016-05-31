@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>absolute test</title>
+    <script src="jquery-1.12.4.js"></script>
+    <script src="abssplitter.js"></script>
+
+    <style type="text/css">
+        body{
+            padding: 0;
+            margin: 0;
+        }
+
+        .window{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .panel{
+            position: absolute;
+        }
+
+        .panel-header{
+            width: 100%;
+            height: 100px;
+            background: #3E4C5F;
+            top: 0;
+            left: 0;
+        }
+
+        .panel-content{
+            width: 100%;
+            top: 100px;
+            bottom: 100px;
+            left: 0;
+            background: #d58512;
+        }
+
+        .panel-footer{
+            width: 100%;
+            height: 100px;
+            bottom: 0;
+            left: 0;
+            background: #0c60ee;
+            color: white;
+        }
+
+        .panel-left{
+            float: left;
+            width: 100px;
+            height: 100%;
+            left: 0;
+            background: #65cc93;
+        }
+        .panel-right{
+            float: left;
+            width: 100px;
+            height: 100%;
+            right: 0;
+            background: #cc5299;
+        }
+        .panel-middle{
+            float: left;
+            left: 100px;
+            right: 100px;
+            height: 100%;
+            background: #ef4e3a;
+        }
+        .splitter{
+            position: absolute;
+            z-index: 100;
+        }
+        .splitter-h{
+            width: 8px;
+            margin-right: -4px;
+            height: 100%;
+            right: 0;
+            background: none;
+        }
+        .splitter-v{
+            height: 8px;
+            margin-bottom: -8px;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .splitter-inner-h{
+            width: 1px;
+            height: 100%;
+            margin: auto;
+            background: #f0f0f0;
+            pointer-events: none;
+        }
+
+        .splitter-inner-v{
+            height: 1px;
+            width: 100%;
+            margin: auto;
+            background: #f0f0f0;
+            pointer-events: none;
+        }
+
+
+        .fl{
+            float: left;
+        }
+
+        iframe{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="window">
+        <div class="panel panel-header">header</div>
+        <div class="panel panel-content">
+            <div class="panel panel-left">
+                <div class="fl">left</div>
+                <div class="splitter splitter-h">
+                    <div class="splitter-inner-h"></div>
+                </div>
+            </div>
+            <div class="panel panel-middle">
+                <div class="fl">
+                    <iframe src="http://www.163.com" frameborder="0" allowtransparency="true"></iframe>
+                </div>
+                <div class="splitter splitter-h">
+                    <div class="splitter-inner-h"></div>
+                </div>
+            </div>
+            <div class="panel panel-right">right</div>
+            <div class="splitter splitter-v">
+                <div class="splitter-inner-v"></div>
+            </div>
+        </div>
+        <div class="panel panel-footer">footer</div>
+    </div>
+</body>
+</html>

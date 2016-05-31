@@ -15,32 +15,55 @@
  */
 
 /**
- * Created by yy on 2016/5/30.
+ * 对窗口中的相邻窗口之间进行拖拽，以改变窗口的大小。本文件依整于jquery库。
+ * 通过修改panel的宽高来调整panel的大小。
+ * 使用方法：
  */
 
-var SplitPanel = function ($dom) {
+$(function () {
+    var splitter = new FinSplitter();
+    splitter.init();
+});
+
+/**
+ * 定义splitter一侧的面板。
+ * @param $dom jQuery dom元素。
+ * @constructor
+ */
+function SplitPanel($dom) {
     this.$dom = $dom;
     this.rc = null;
     this.$maskDom = null;
+    this.minWidth = 0;
+    this.minHeight = 0;
+    this.maxWidth = 0;
+    this.maxHeight = 0;
+}
 
-    this.clear = function () {
-        if (null !== this.$dom){
-            var selectNone = ["-webkit-user-select", "-moz-user-select", "-ms-user-select", "user-select"];
-            var that = this;
-            $.each(selectNone, function (index, value) {
-                that.$dom.css(value, "text");
-            });
-        }
-        this.$dom = null;
-        this.rc = null;
-        if (this.$maskDom){
-            this.$maskDom.remove();
-        }
-        this.$maskDom = null;
+/**
+ * 清空面板数据。
+ */
+SplitPanel.prototype.clear = function () {
+    if (null !== this.$dom){
+        var selectNone = ["-webkit-user-select", "-moz-user-select", "-ms-user-select", "user-select"];
+        var that = this;
+        $.each(selectNone, function (index, value) {
+            that.$dom.css(value, "text");
+        });
     }
+    this.$dom = null;
+    this.rc = null;
+    if (this.$maskDom){
+        this.$maskDom.remove();
+    }
+    this.$maskDom = null;
 };
 
-var Finsplitter = function () {
+/**
+ * 面板分割操作。
+ * @constructor
+ */
+function FinSplitter() {
     this.$splitters = null;
 
     // this.$curSplitter = null;
@@ -49,29 +72,33 @@ var Finsplitter = function () {
     this.isHorz = false;
 
     this.pannels = null;
+}
 
-    this.init = function () {
+{
+    FinSplitter.prototype.init = function () {
         this.$splitters = $(".splitter");
 
-        $.each(this.$splitters, function (index, value) {
-            console.log(value);
+        $.each(this.$splitters, function (index, splitter) {
+            console.log(splitter);
 
-           $(value).css("cursor", $(value).width() < $(value).height() ? "ew-resize":"ns-resize");
+            $(splitter).css("cursor", $(splitter).width() < $(splitter).height() ? "ew-resize":"ns-resize");
         });
 
         var that = this;
         this.$splitters.on("mousedown touchstart", function(e){
             that.start(e);
         });
+
         var $body = $("body");
         $body.on("mousemove touchmove", function(e){
             that.move(e);
         });
+
         $body.on("mouseup touchend", function(e){that.end();});
     };
 
-    this.start = function (event) {
-        this.running = false;
+    FinSplitter.prototype.start = function (event) {
+        this.clear();
         // var that = this;
 
         // 拖拽起始位置
@@ -90,16 +117,16 @@ var Finsplitter = function () {
         }
 
         var selectNone = ["-webkit-user-select", "-moz-user-select", "-ms-user-select", "user-select"];
-        $.each(this.pannels, function (index, value) {
-            var $dom = value.$dom;
-            value.rc = {
+        $.each(this.pannels, function (index, panel) {
+            var $dom = panel.$dom;
+            panel.rc = {
                 l: $dom.position().left,
                 t: $dom.position().top,
                 w: $dom.width(),
                 h: $dom.height()
             };
 
-            var rc = value.rc;
+            var rc = panel.rc;
 
             var $maskDom = $("<div></div>");
             $maskDom.css("position", "absolute");
@@ -108,10 +135,17 @@ var Finsplitter = function () {
 
             $maskDom.css("width", rc.w + "px");
             $maskDom.css("height", rc.h + "px");
-            $maskDom.css("left", rc.l + "px");
-            $maskDom.css("top", rc.t + "px");
+            // $maskDom.css("left", rc.l + "px");
+            // $maskDom.css("top", rc.t + "px");
+            $maskDom.css("left", "0px");
+            $maskDom.css("top", "0px");
             $maskDom.appendTo($dom);
-            value.$maskDom = $maskDom;
+            panel.$maskDom = $maskDom;
+
+            panel.minWidth = $dom.minWidth();
+            panel.minHeight = $dom.minHeight();
+            panel.maxWidth = $dom.maxWidth();
+            panel.maxHeight = $dom.maxHeight();
 
             $.each(selectNone, function (index, value) {
                 $dom.css(value, "none");
@@ -124,7 +158,7 @@ var Finsplitter = function () {
         this.running = true;
     };
 
-    this.move = function (event) {
+    FinSplitter.prototype.move = function (event) {
         if (!this.running){
             return;
         }
@@ -133,28 +167,40 @@ var Finsplitter = function () {
 
         var oriW = [this.isHorz ? this.pannels[0].rc.w : this.pannels[0].rc.h,
             this.isHorz ? this.pannels[1].rc.w : this.pannels[1].rc.h,
-            ];
+        ];
         var newWidth = [Math.round(oriW[0] + offset),
             Math.round(oriW[1] - offset)];
-        if (newWidth[0] < 0 || newWidth[1] < 10){
-            return;
+        if (this.isHorz){
+            if (newWidth[0] < (this.pannels[0].minWidth || 0) ||
+                (newWidth[1] < (this.pannels[1].minWidth || 0))){
+                return;
+            }
         }
+        else{
+            if (newWidth[0] < (this.pannels[0].minHeight || 0) ||
+                (newWidth[1] < (this.pannels[1].minHeight || 0))){
+                return;
+            }
+        }
+
         var that = this;
         $.each(this.pannels, function (index, value) {
             value.$dom.css(that.isHorz?"width":"height", newWidth[index] + "px");
+            value.$maskDom.css(that.isHorz?"width":"height", newWidth[index] + "px");
         });
     };
 
-    this.end = function () {
+    FinSplitter.prototype.end = function () {
+        this.clear();
+    };
+
+    FinSplitter.prototype.clear = function () {
         this.running = false;
 
-        $.each(this.pannels, function (index, value) {
-            value.clear();
+        $.each(this.pannels, function (index, panel) {
+            panel.clear();
         })
-    }
-};
 
-$(function () {
-    var splitter = new Finsplitter();
-    splitter.init();
-});
+        this.pannels = null;
+    }
+}
