@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内部含有iframe</title>
+    <style type="text/css">
+        /*iframe{*/
+            /*width: 100%;*/
+            /*height: 100%;*/
+            /*position: absolute;*/
+            /*left: 0;*/
+            /*top: 0;*/
+            /*overflow: hidden;*/
+        /*}*/
+
+        #iframesrc{
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        #result1{
+            min-width: 100px;
+            min-height: 100px;
+            border: 1px #cc5299 solid;
+        }
+    </style>
+
+    <script>
+    </script>
+
+
+</head>
+<body>
+
+    <div id="result1">
+        <img id="resultImg" src="">
+    </div>
+    <div id="iframesrc">
+        <iframe id="inframe" src="inframe.html"></iframe>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        resultImg = document.getElementById("resultImg");
+        var inframe = document.getElementById("inframe");
+            inframe.contentWindow.catchIt();
+//            frames['inframe'].catchIt();
+
+            var t=setTimeout("time1()",2000);
+    };
+    frames['inframe'].catchIt();
+
+    //        function time1() {
+    //            var canvas = inframe.contentWindow.resultCanvas;
+    //            var img = canvas.toDataURL("image/png");
+    //            resultImg.src = img;
+    //        }
+</script>
+
+</html>

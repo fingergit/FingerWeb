@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试将html片断生成位图</title>
+    <script src="../../jslib/html2canvas-0.5.0-alpha1/html2canvas.js"></script>
+    <style type="text/css">
+        #photo{
+            width: 200px;
+            height: 500px;
+            float: left;
+        }
+
+        #result{
+            float: left;
+            min-width: 100px;
+            min-height: 100px;
+            border: 1px #cc5299 solid;
+        }
+
+        #photo img{
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var btnCatch = document.getElementById("btnCatch");
+            var photo = document.getElementById("photo");
+            var resultImg = document.getElementById("resultImg");
+
+
+            btnCatch.onclick = function (e) {
+                html2canvas(photo, {
+                    onrendered: function(canvas) {
+                        var img = canvas.toDataURL("image/png");
+                        resultImg.src = img;
+                        saveAsLocalImage(canvas);
+                    }
+                });
+            }
+        };
+
+        function saveAsLocalImage (canvas) {
+            // here is the most important part because if you dont replace you will get a DOM 18 exception.
+            // var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream;Content-Disposition: attachment;filename=foobar.png");
+            var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            window.location.href=image; // it will save locally
+        }
+    </script>
+
+
+</head>
+<body>
+    <div id="photo">
+        <img src="a.jpg">
+        <div>抓我呀</div>
+        <button id="btnCatch" name="btnCatch">抓我</button>
+    </div>
+
+    <div id="result">
+        <img id="resultImg" src="">
+    </div>
+</body>
+</html>

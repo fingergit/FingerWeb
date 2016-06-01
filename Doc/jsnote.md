@@ -565,3 +565,21 @@
    document.cookie; // 'v=123; remember=true; prefer=zh'
    ```
 
+## iframe和宿主页通信
+
+- 调用iframe中的属性和方法
+
+  在 window.onload里面执行:
+
+  ```
+  var theFrame = document.getElementById('xxx');
+  var login = theFrame.contentWindow.hasLogined();
+  ```
+
+  或者:
+
+  ```
+  var login = window.frames['frame1'].hasLogined();
+  ```
+
+-

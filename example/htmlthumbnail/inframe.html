@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内部含有iframe</title>
+    <script src="../../jslib/html2canvas-0.5.0-alpha1/html2canvas.js"></script>
+    <style type="text/css">
+        #photo{
+            width: 200px;
+            height: 500px;
+        }
+
+        #photo img{
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <script>
+        var resultCanvas = null;
+        window.onload = function () {
+            var btnCatch = document.getElementById("btnCatch");
+            var photo = document.getElementById("photo");
+            var resultImg = document.getElementById("resultImg");
+
+
+            btnCatch.onclick = function (e) {
+                catchIt();
+            }
+        };
+
+        function catchIt(){
+            html2canvas(photo, {
+                onrendered: function(canvas) {
+                    resultCanvas = canvas;
+                }
+            });
+        }
+    </script>
+
+
+</head>
+<body>
+    <div id="photo">
+        <img src="a.jpg">
+        <div>抓我呀</div>
+        <button id="btnCatch" name="btnCatch">抓我</button>
+    </div>
+</body>
+</html>

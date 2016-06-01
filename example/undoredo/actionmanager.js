@@ -6,50 +6,54 @@ function Action(name){
     this.name = name;
 }
 
-Action.prototype.do = function(){
-};
+{
+    Action.prototype.do = function(){
+    };
 
-Action.prototype.undo = function(){
-};
+    Action.prototype.undo = function(){
+    };
+}
 
 function ActionManager() {
     this.redoList = [];
     this.undoList = [];
 }
 
-ActionManager.prototype.addAction = function (action) {
-    this.undoList.push(action);
-    this.redoList.length = 0;
-    action.do();
-};
+{
+    ActionManager.prototype.addAction = function (action) {
+        this.undoList.push(action);
+        this.redoList.length = 0;
+        action.do();
+    };
 
-ActionManager.prototype.undo = function () {
-    if (this.undoList.length == 0){
-        return;
-    }
-    
-    var action = this.undoList.pop();
-    this.redoList.push(action);
-    action.undo();
-};
+    ActionManager.prototype.undo = function () {
+        if (this.undoList.length == 0){
+            return;
+        }
 
-ActionManager.prototype.redo = function () {
-    if (this.redoList.length == 0){
-        return;
-    }
-    
-    var action = this.redoList.pop();
-    this.undoList.push(action);
-    action.do();
-};
+        var action = this.undoList.pop();
+        this.redoList.push(action);
+        action.undo();
+    };
 
-ActionManager.prototype.canUndo = function () {
-    return this.undoList.length > 0;
-};
+    ActionManager.prototype.redo = function () {
+        if (this.redoList.length == 0){
+            return;
+        }
 
-ActionManager.prototype.canRedo = function () {
-    return this.redoList.length > 0;
-};
+        var action = this.redoList.pop();
+        this.undoList.push(action);
+        action.do();
+    };
+
+    ActionManager.prototype.canUndo = function () {
+        return this.undoList.length > 0;
+    };
+
+    ActionManager.prototype.canRedo = function () {
+        return this.redoList.length > 0;
+    };
+}
 
 var g_result = 0;
 function MathAction(name, add){
