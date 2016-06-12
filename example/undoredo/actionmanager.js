@@ -4,6 +4,7 @@
 
 function Action(name){
     this.name = name;
+    this.time = new Date().getTime();
 }
 
 {
@@ -21,9 +22,18 @@ function ActionManager() {
 
 {
     ActionManager.prototype.addAction = function (action) {
+        // 如果action的名称与前一个action的名称相同，且此次调用时间与上次调用时间不超过1秒钟，则认为与上个action为同一个action。
+        if (this.undoList.length > 0){
+            var lastAction = this.undoList[this.undoList.length-1];
+            if (lastAction.name != null && lastAction.name == action.name &&
+            action.time-lastAction.time<1000){
+                this.undoList.pop();
+            }
+        }
         this.undoList.push(action);
         this.redoList.length = 0;
         action.do();
+        console.log("undolist: " + this.undoList.length);
     };
 
     ActionManager.prototype.undo = function () {
