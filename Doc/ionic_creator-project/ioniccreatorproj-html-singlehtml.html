@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    
+    <link href="https://creator.ionic.io/api/v1/getcss?app_id=dde58b88a82d&amp;v=64&fontfix=1" rel="stylesheet">
+    
+       
+    <link href="/css/preview-frame.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="/lib/ionic/release/js/ionic.bundle.js"></script>
+    <script src="/lib/ionicuirouter/ionicUIRouter.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Poppins:400,300,500,600,700|Crimson+Text:400,400italic,600,600italic,700,700italic|Lora:400,400italic,700,700italic|Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Raleway:400,100,100italic,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic|Noto+Sans:400,400italic,700,700italic|Lato:400,100,100italic,300italic,300,400italic,700,700italic,900,900italic|Muli:400,300,300italic,400italic' rel='stylesheet' type='text/css'>
+
+    <link id='android-default-font' rel='text/css' href='/css/android-default-font.css'>
+    <link id='ios-default-font' rel='text/css' href='/css/ios-default-font.css'>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+     <style type="text/css">
+      .platform-ios .manual-ios-statusbar-padding{
+        padding-top:20px;
+      }
+      .manual-remove-top-padding{
+        padding-top:0px !important;
+      }
+      .manual-remove-top-padding .scroll{
+        padding-top:0px !important;
+      }
+      ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+        margin-left:-10px;
+        margin-right:-10px;
+      }
+      ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+        border-radius:0px;
+        border-left:0px;
+        border-right: 0px;
+      }
+    </style>
+
+
+    <script>
+// Ionic Starter App
+
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.services' is found in services.js
+// 'starter.controllers' is found in controllers.js
+angular.module('app', ['ionic', 'app.controllers', 'ionicUIRouter'])
+
+.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+  });
+})
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
+
+  
+
+  .state('tabsController.cameraTabDefaultPage', {
+    url: '/page2',
+    views: {
+      'tab1': {
+        templateUrl: 'templates/cameraTabDefaultPage.html',
+        controller: 'cameraTabDefaultPageCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.cartTabDefaultPage', {
+    url: '/page3',
+    views: {
+      'tab2': {
+        templateUrl: 'templates/cartTabDefaultPage.html',
+        controller: 'cartTabDefaultPageCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.cloudTabDefaultPage', {
+    url: '/page4',
+    views: {
+      'tab3': {
+        templateUrl: 'templates/cloudTabDefaultPage.html',
+        controller: 'cloudTabDefaultPageCtrl'
+      }
+    }
+  })
+
+  .state('tabsController', {
+    url: '/page1',
+    templateUrl: 'templates/tabsController.html',
+    abstract:true
+  })
+
+  .state('login', {
+    url: '/page5',
+    templateUrl: 'templates/login.html',
+    controller: 'loginCtrl'
+  })
+
+$urlRouterProvider.otherwise('/page1/page4')
+
+  
+
+})
+
+angular.module('app.controllers', [])
+     
+.controller('cameraTabDefaultPageCtrl', function($scope) {
+
+})
+   
+.controller('cartTabDefaultPageCtrl', function($scope) {
+
+})
+   
+.controller('cloudTabDefaultPageCtrl', function($scope) {
+
+})
+      
+.controller('loginCtrl', function($scope) {
+
+})
+ 
+
+
+    </script>
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7">
+  <div>
+    <ion-side-menus enable-menu-with-back-views="false" data-componentid="side-menu21">
+        <ion-side-menu-content>
+            <ion-nav-bar class="bar-stable">
+                <ion-nav-back-button></ion-nav-back-button>
+                <ion-nav-buttons side="left">
+                    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+                </ion-nav-buttons>
+            </ion-nav-bar>
+            <ion-nav-view></ion-nav-view>
+        </ion-side-menu-content>
+        <ion-side-menu side="left" id="side-menu21">
+            <ion-header-bar class="bar-stable">
+                <div class="title">Menu</div>
+            </ion-header-bar>
+            <ion-content padding="false" class="side-menu-left has-header">
+                <h1 id="menu-heading1" style="color:#000000;" class=" " data-componentid="heading1">Heading</h1>
+                <button id="menu-button3" style="font-weight:lighter;color:#CCCCCC;font-size:12px;text-align:left;border-radius:55643px 55643px 55643px 55643px;" class=" button button-dark  " data-componentid="button3">Tap me!hnnbcvnbv</button>
+                <div id="menu-button-bar1" class=" button-bar " data-componentid="button-bar1">
+                    <button id="menu-button4" class=" button button-positive  button-block " data-componentid="button4">1</button>
+                    <button id="menu-button5" class=" button button-positive  button-block icon-left ion-android-add-circle " data-componentid="button5">2</button>
+                    <button id="menu-button6" class=" button button-positive  button-block " data-componentid="button6">3</button>
+                </div>
+                <form id="menu-form3" class="list " data-componentid="form3">
+                    <ion-checkbox data-componentid="checkbox1">Checkbox</ion-checkbox>
+                </form>
+                <div id="menu-button-bar2" class=" button-bar " data-componentid="button-bar2"></div>
+                <form id="menu-form4" class="list " data-componentid="form4">
+                    <ion-item class="range range-positive " id="menu-range1" data-componentid="range1">Range
+                        <input type="range" value="50" min="0" max="100">
+                    </ion-item>
+                    <ion-toggle toggle-class="toggle-positive" id="menu-toggle1" class=" " data-componentid="toggle1">Toggle</ion-toggle>
+                </form>
+            </ion-content>
+        </ion-side-menu>
+    </ion-side-menus>
+</div>
+<script id="templates/cameraTabDefaultPage.html" type="text/ng-template">
+<ion-view title="Camera Tab Default Page" id="page2" class=" ">
+    <ion-content padding="true" class="has-header">
+        <a href="tel:" id="cameraTabDefaultPage-button2" style="color:#21AE84;" class=" button button-positive  button-block icon ion-android-add-circle ">gggggg</a>
+        <div class="spacer" style="width: 283px; height: 17px;"></div>
+        <div class="list card " id="cameraTabDefaultPage-card21">
+            <ion-item class="item-avatar  " id="cameraTabDefaultPage-list-item1">
+                <img src="/img/avatar-img.png">
+                <h2>Item</h2>
+            </ion-item>
+            <div class="item item-body " id="cameraTabDefaultPage-list-item-container1">
+                <p id="cameraTabDefaultPage-markdown1" style="margin-top:0px;color:#000000;" class=" ">Some friendly
+                    <strong>markdown</strong>
+                </p>
+                <div class="">
+                    <img src="https://s3.amazonaws.com/ionic-io-static/iqlF3oeOR9C1XseI6nlg_201411160111378119.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+                </div>
+            </div>
+            <ion-item class="item-icon-left assertive  " id="cameraTabDefaultPage-list-item2">
+                <i class="icon ion-music-note"></i>Play Song</ion-item>
+        </div>
+        <form id="cameraTabDefaultPage-form1" class="list ">
+            <label class="item item-input " id="cameraTabDefaultPage-input1">
+                <span class="input-label">Input</span>
+                <input type="text" placeholder="">
+            </label>
+            <div class="spacer" style="width: 283px; height: 17px;"></div>
+            <label class="item item-input " id="cameraTabDefaultPage-input2" name="llll">
+                <span class="input-label">Input</span>
+                <input type="text" placeholder="">
+            </label>
+        </form>
+    </ion-content>
+</ion-view></script>
+<script id="templates/cartTabDefaultPage.html" type="text/ng-template">
+<ion-view title="Cart Tab Default Page" id="page3" class=" ">
+    <ion-content padding="true" class="has-header">
+        <ion-list id="cartTabDefaultPage-list2" class=" ">
+            <ion-item class="item-thumbnail-left  " id="cartTabDefaultPage-list-item3">
+                <img src="/img/thumbnail-img.png">
+                <h2>Item</h2>
+            </ion-item>
+            <ion-item class="item-thumbnail-left  " id="cartTabDefaultPage-list-item3">
+                <img src="/img/thumbnail-img.png">
+                <h2>Item</h2>
+            </ion-item>
+            <ion-item class="item-thumbnail-left  " id="cartTabDefaultPage-list-item3">
+                <img src="/img/thumbnail-img.png">
+                <h2>Item</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view></script>
+<script id="templates/cloudTabDefaultPage.html" type="text/ng-template">
+<ion-view title="Cloud Tab Default Page" id="page4" class=" ">
+    <ion-content padding="true" class="has-header"></ion-content>
+</ion-view></script>
+<script id="templates/tabsController.html" type="text/ng-template">
+<ion-view title="Tabs Controller" id="page1" class=" ">
+    <ion-tabs class="tabs-stable tabs-icon-top " id="tabsController-tabs1">
+        <ion-tab title="Camera Tab" icon="ion-ios-camera" href="#/page1/page2" id="tabsController-tab1" class=" ">
+            <ion-nav-view name="tab1"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="Cart Tab" icon="ion-ios-cart" href="#/page1/page3" id="tabsController-tab2" class=" ">
+            <ion-nav-view name="tab2"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="Cloud Tab" icon="ion-ios-cloud" href="#/page1/page4" id="tabsController-tab3" class=" ">
+            <ion-nav-view name="tab3"></ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view></script>
+<script id="templates/login.html" type="text/ng-template">
+<ion-view title="Login" id="page5" class=" ">
+    <ion-content padding="true" class="has-header">
+        <form id="login-form5" class="list ">
+            <ion-list id="login-list3" class=" ">
+                <label class="item item-input " id="login-input3">
+                    <span class="input-label">Username</span>
+                    <input type="text" placeholder="">
+                </label>
+                <label class="item item-input " id="login-input4">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>
+            <button id="login-button7" class=" button button-stable  button-block ">Log in</button>
+            <a href="#" onclick="window.open('/signup', '_system', 'location=yes'); return false;" id="login-button8" class=" button button-positive  button-block button-clear ">Or create an account</a>
+        </form>
+    </ion-content>
+</ion-view></script>
+  </body>
+</html>

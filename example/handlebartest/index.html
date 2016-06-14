@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Handle bar test</title>
+</head>
+<body>
+</body>
+
+<script id="tpl" type="text/x-handlebars-template">
+    <div class="demo">
+        <h1>{{content.title}}</h1>
+        <h2>{{author}}</h2>
+        <p>{{content.content}}</p>
+        <p>{{{content.content}}}</p>
+    </div>
+</script>
+
+<script src="handlebars4.0.5.js"></script>
+<script>
+    var tpl = document.getElementById('tpl');
+    var source = tpl.innerHTML;
+    var template = Handlebars.compile(source);
+    var context = { author: "是我",
+                    content: {title: "我是标题",
+                              content: "<a href='#'>我是内容</a>"}
+                    };
+    var html = template(context);
+    var body = document.body;
+    body.innerHTML = html;
+</script>
+
+</html>

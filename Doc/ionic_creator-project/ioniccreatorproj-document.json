@@ -1,0 +1,1716 @@
+{
+    "v": "1.1.0",
+    "generated": 1465867878582,
+    "extra": {
+        "fromTemplate": null,
+        "appType": "sidemenutabs",
+        "appgraph": {
+            "entries": {
+                "page2": {
+                    "from": {},
+                    "to": {}
+                },
+                "page3": {
+                    "from": {},
+                    "to": {}
+                }
+            },
+            "linkers": {},
+            "last_updated": 1465866270074
+        },
+        "startingPage": "side-menu21",
+        "routes": "  .state('tabsController.cameraTabDefaultPage', {\n    url: '/page2',\n    views: {\n      'tab1': {\n        templateUrl: 'templates/cameraTabDefaultPage.html',\n        controller: 'cameraTabDefaultPageCtrl'\n      }\n    }\n  })\n\n  .state('tabsController.cartTabDefaultPage', {\n    url: '/page3',\n    views: {\n      'tab2': {\n        templateUrl: 'templates/cartTabDefaultPage.html',\n        controller: 'cartTabDefaultPageCtrl'\n      }\n    }\n  })\n\n  .state('tabsController.cloudTabDefaultPage', {\n    url: '/page4',\n    views: {\n      'tab3': {\n        templateUrl: 'templates/cloudTabDefaultPage.html',\n        controller: 'cloudTabDefaultPageCtrl'\n      }\n    }\n  })\n\n  .state('tabsController', {\n    url: '/page1',\n    templateUrl: 'templates/tabsController.html',\n    abstract:true\n  })\n\n  .state('login', {\n    url: '/page5',\n    templateUrl: 'templates/login.html',\n    controller: 'loginCtrl'\n  })\n\n$urlRouterProvider.otherwise('/page1/page4')",
+        "last_route_generation": 1465866270074,
+        "page_views": {
+            "page2": [
+                "tab1"
+            ],
+            "page3": [
+                "tab2"
+            ],
+            "page4": [
+                "tab3"
+            ]
+        },
+        "ionicuirouter_required": false,
+        "device": {
+            "type": "iphone",
+            "os": "ios",
+            "zoom": "1",
+            "scaleVal": 1,
+            "orientation": "vertical",
+            "height": 568,
+            "width": 320,
+            "statusBar": true,
+            "skin": true,
+            "scaleTransition": "0s ease out"
+        },
+        "themes": {
+            "custom_scss_text": "",
+            "custom_scss_variables": {
+                "$positive": "#F538A2"
+            },
+            "headerBackgroundTheme": "stable",
+            "sideMenuHeaderBackgroundTheme": "stable",
+            "linkTheme": "positive",
+            "pageBackgroundColor": "#FFFFFF",
+            "textColor": "#333333",
+            "version": "64",
+            "validCompiledCSS": true,
+            "usingCustomStyles": true,
+            "iosFont": "default",
+            "androidFont": "default",
+            "fontList": [],
+            "scssCursorPosition": {
+                "row": 0,
+                "column": 0
+            },
+            "section": "theme"
+        }
+    },
+    "document": {
+        "root": {
+            "type": "app",
+            "id": "app1",
+            "props": {
+                "id": "",
+                "extraClasses": "",
+                "width": "",
+                "height": "",
+                "margin": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "padding": {
+                    "top": "",
+                    "right": "",
+                    "bottom": "",
+                    "left": ""
+                },
+                "skipcss": false
+            },
+            "children": [
+                {
+                    "type": "nav",
+                    "id": "nav1",
+                    "props": {
+                        "id": "",
+                        "extraClasses": "",
+                        "width": "",
+                        "height": "",
+                        "margin": {
+                            "top": "",
+                            "right": "",
+                            "bottom": "",
+                            "left": ""
+                        },
+                        "padding": {
+                            "top": "",
+                            "right": "",
+                            "bottom": "",
+                            "left": ""
+                        },
+                        "skipcss": false,
+                        "style": "bar-stable"
+                    },
+                    "children": [
+                        {
+                            "type": "side-menu2",
+                            "id": "side-menu21",
+                            "props": {
+                                "id": "",
+                                "extraClasses": "",
+                                "width": "",
+                                "height": "",
+                                "margin": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "padding": false,
+                                "skipcss": false,
+                                "parentState": "",
+                                "sidemenu": true,
+                                "outlineIcon": "",
+                                "parentView": "",
+                                "idName": "menu",
+                                "abstract": true,
+                                "tabsHack": true,
+                                "hasContent": true,
+                                "title": "Menu",
+                                "url": "/side-menu21",
+                                "previewPage": "page2",
+                                "side": "left",
+                                "root": true,
+                                "defaultPage": "",
+                                "exposeAsideWhen": false,
+                                "ionicpadding": false,
+                                "scroll": true,
+                                "backgroundColor": "",
+                                "backgroundImg": "",
+                                "enableBack": false,
+                                "hasHeader": true,
+                                "hasFooter": false,
+                                "pages": "",
+                                "disableParenting": true,
+                                "class": "",
+                                "newProps": true
+                            },
+                            "children": [
+                                {
+                                    "type": "heading",
+                                    "id": "heading1",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": false,
+                                        "text": "Heading",
+                                        "size": "1",
+                                        "fontcolor": "#000000",
+                                        "fontweight": {
+                                            "weight": "500",
+                                            "italic": false
+                                        },
+                                        "alignment": "left",
+                                        "class": "",
+                                        "newProps": true
+                                    },
+                                    "children": []
+                                },
+                                {
+                                    "type": "button",
+                                    "id": "button3",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "link": "",
+                                        "linkView": "",
+                                        "text": "Tap me!hnnbcvnbv",
+                                        "fontsize": "12",
+                                        "alignment": "left",
+                                        "fontweight": {
+                                            "weight": "lighter",
+                                            "italic": false
+                                        },
+                                        "fontcolor": "#CCCCCC",
+                                        "type": "",
+                                        "widthType": "inline",
+                                        "newType": "default",
+                                        "style": "dark",
+                                        "size": "",
+                                        "fullwidth": false,
+                                        "radius": {
+                                            "all": true,
+                                            "all_val": "55643",
+                                            "topleft_val": "55643",
+                                            "topright_val": "55643",
+                                            "bottomright_val": "55643",
+                                            "bottomleft_val": "55643"
+                                        },
+                                        "class": "",
+                                        "icon": "No Icon",
+                                        "iconposition": "center",
+                                        "newProps": true
+                                    },
+                                    "children": []
+                                },
+                                {
+                                    "type": "button-bar",
+                                    "id": "button-bar1",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "class": "",
+                                        "newProps": true
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "button",
+                                            "id": "button4",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "link": "",
+                                                "linkView": "",
+                                                "text": "1",
+                                                "fontsize": "",
+                                                "alignment": "center",
+                                                "fontweight": {
+                                                    "weight": "400",
+                                                    "italic": false
+                                                },
+                                                "fontcolor": "",
+                                                "type": "",
+                                                "widthType": "block",
+                                                "newType": "default",
+                                                "style": "positive",
+                                                "size": "",
+                                                "fullwidth": false,
+                                                "class": "",
+                                                "icon": "No Icon",
+                                                "iconposition": "center",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "button",
+                                            "id": "button5",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "link": "",
+                                                "linkView": "",
+                                                "text": "2",
+                                                "fontsize": "",
+                                                "alignment": "center",
+                                                "fontweight": {
+                                                    "weight": "400",
+                                                    "italic": false
+                                                },
+                                                "fontcolor": "",
+                                                "type": "",
+                                                "widthType": "block",
+                                                "newType": "default",
+                                                "style": "positive",
+                                                "size": "",
+                                                "fullwidth": false,
+                                                "class": "",
+                                                "icon": "ion-android-add-circle",
+                                                "iconposition": "left",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "button",
+                                            "id": "button6",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "link": "",
+                                                "linkView": "",
+                                                "text": "3",
+                                                "fontsize": "",
+                                                "alignment": "center",
+                                                "fontweight": {
+                                                    "weight": "400",
+                                                    "italic": false
+                                                },
+                                                "fontcolor": "",
+                                                "type": "",
+                                                "widthType": "block",
+                                                "newType": "default",
+                                                "style": "positive",
+                                                "size": "",
+                                                "fullwidth": false,
+                                                "class": "",
+                                                "icon": "No Icon",
+                                                "iconposition": "center",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "form",
+                                    "id": "form3",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "action": "",
+                                        "method": "",
+                                        "class": "",
+                                        "newProps": true
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "checkbox",
+                                            "id": "checkbox1",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": false,
+                                                "title": "Checkbox",
+                                                "name": ""
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "button-bar",
+                                    "id": "button-bar2",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "class": "",
+                                        "newProps": true
+                                    },
+                                    "children": []
+                                },
+                                {
+                                    "type": "form",
+                                    "id": "form4",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "action": "",
+                                        "method": "",
+                                        "class": "",
+                                        "newProps": true
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "range",
+                                            "id": "range1",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "title": "Range",
+                                                "name": "",
+                                                "min": 0,
+                                                "max": 100,
+                                                "value": 50,
+                                                "style": "positive",
+                                                "class": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "toggle",
+                                            "id": "toggle1",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "title": "Toggle",
+                                                "name": "",
+                                                "style": "positive",
+                                                "on": false,
+                                                "class": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "id": "page2",
+                            "props": {
+                                "id": "",
+                                "extraClasses": "",
+                                "width": "",
+                                "height": "",
+                                "margin": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "padding": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "skipcss": false,
+                                "parentState": "page1",
+                                "outlineIcon": "",
+                                "parentView": "",
+                                "idName": "cameraTabDefaultPage",
+                                "abstract": false,
+                                "hasContent": true,
+                                "title": "Camera Tab Default Page",
+                                "url": "/page2",
+                                "routeViews": [
+                                    "tab1"
+                                ],
+                                "previewPage": "",
+                                "ionicpadding": true,
+                                "scroll": true,
+                                "backgroundColor": "",
+                                "backgroundImg": "",
+                                "disableBackButton": false,
+                                "hideHeader": false,
+                                "hasHeader": true,
+                                "hasFooter": false,
+                                "disableParenting": false,
+                                "class": "",
+                                "newProps": true
+                            },
+                            "children": [
+                                {
+                                    "type": "button",
+                                    "id": "button2",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "link": "tel:",
+                                        "linkView": "",
+                                        "text": "gggggg",
+                                        "fontsize": "",
+                                        "alignment": "center",
+                                        "fontweight": {
+                                            "weight": "400",
+                                            "italic": false
+                                        },
+                                        "fontcolor": "#21AE84",
+                                        "type": "",
+                                        "widthType": "block",
+                                        "newType": "default",
+                                        "style": "positive",
+                                        "size": "",
+                                        "fullwidth": false,
+                                        "radius": {
+                                            "all": true,
+                                            "all_val": ""
+                                        },
+                                        "class": "",
+                                        "icon": "ion-android-add-circle",
+                                        "iconposition": "center",
+                                        "newProps": true
+                                    },
+                                    "children": []
+                                },
+                                {
+                                    "type": "spacer",
+                                    "id": "spacer2",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "283px",
+                                        "height": "17px",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": false
+                                    },
+                                    "children": []
+                                },
+                                {
+                                    "type": "card2",
+                                    "id": "card21",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "title": "Card",
+                                        "footer": "",
+                                        "class": "",
+                                        "fullwidth": false,
+                                        "newProps": true
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "list-item",
+                                            "id": "list-item1",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": false,
+                                                "link": "",
+                                                "linkView": "",
+                                                "content": "Item",
+                                                "secondline": "",
+                                                "secondLineWordWrap": false,
+                                                "type": "avatar",
+                                                "iconStyle": "ion-ionic",
+                                                "avatarImg": "",
+                                                "thumbnailImg": "",
+                                                "theme": "none",
+                                                "class": "",
+                                                "note": "",
+                                                "rightIcon": "No Icon",
+                                                "rightAccessory": true,
+                                                "style": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "list-item-container",
+                                            "id": "list-item-container1",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": false,
+                                                "class": "",
+                                                "newProps": true
+                                            },
+                                            "children": [
+                                                {
+                                                    "type": "markdown",
+                                                    "id": "markdown1",
+                                                    "props": {
+                                                        "id": "",
+                                                        "extraClasses": "",
+                                                        "width": "",
+                                                        "height": "",
+                                                        "margin": {
+                                                            "top": "",
+                                                            "right": "",
+                                                            "bottom": "",
+                                                            "left": ""
+                                                        },
+                                                        "padding": {
+                                                            "top": "",
+                                                            "right": "",
+                                                            "bottom": "",
+                                                            "left": ""
+                                                        },
+                                                        "skipcss": true,
+                                                        "fontsize": "",
+                                                        "fontcolor": "#000000",
+                                                        "alignment": "left",
+                                                        "content": "Some friendly **markdown**",
+                                                        "noPadding": false,
+                                                        "class": "",
+                                                        "newProps": true
+                                                    },
+                                                    "children": []
+                                                },
+                                                {
+                                                    "type": "image",
+                                                    "id": "image1",
+                                                    "props": {
+                                                        "id": "",
+                                                        "extraClasses": "",
+                                                        "width": "",
+                                                        "height": "",
+                                                        "margin": {
+                                                            "top": "",
+                                                            "right": "",
+                                                            "bottom": "",
+                                                            "left": ""
+                                                        },
+                                                        "padding": {
+                                                            "top": "",
+                                                            "right": "",
+                                                            "bottom": "",
+                                                            "left": ""
+                                                        },
+                                                        "skipcss": true,
+                                                        "link": "",
+                                                        "src": "https://s3.amazonaws.com/ionic-io-static/iqlF3oeOR9C1XseI6nlg_201411160111378119.jpg",
+                                                        "linkView": "",
+                                                        "imgSize": {
+                                                            "width": "100%",
+                                                            "height": "auto",
+                                                            "fullWidth": false
+                                                        },
+                                                        "imgwidth": "",
+                                                        "imgheight": "",
+                                                        "alignment": "center",
+                                                        "class": "",
+                                                        "newProps": true
+                                                    },
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "list-item",
+                                            "id": "list-item2",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": false,
+                                                "link": "",
+                                                "linkView": "",
+                                                "content": "Play Song",
+                                                "secondline": "",
+                                                "secondLineWordWrap": false,
+                                                "type": "icon",
+                                                "iconStyle": "ion-music-note",
+                                                "avatarImg": "",
+                                                "thumbnailImg": "",
+                                                "theme": "assertive",
+                                                "class": "",
+                                                "note": "",
+                                                "rightIcon": "No Icon",
+                                                "rightAccessory": false,
+                                                "style": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "form",
+                                    "id": "form1",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "action": "",
+                                        "method": "",
+                                        "class": "",
+                                        "newProps": true
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "input",
+                                            "id": "input1",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "title": "Input",
+                                                "type": "text",
+                                                "placeholder": "",
+                                                "name": "",
+                                                "labelstyle": "normal",
+                                                "class": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "spacer",
+                                            "id": "spacer1",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "283px",
+                                                "height": "17px",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": false
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "input",
+                                            "id": "input2",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "title": "Input",
+                                                "type": "text",
+                                                "placeholder": "",
+                                                "name": "llll",
+                                                "labelstyle": "normal",
+                                                "class": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "id": "page3",
+                            "props": {
+                                "id": "",
+                                "extraClasses": "",
+                                "width": "",
+                                "height": "",
+                                "margin": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "padding": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "skipcss": false,
+                                "parentState": "page1",
+                                "outlineIcon": "",
+                                "parentView": "",
+                                "idName": "cartTabDefaultPage",
+                                "abstract": false,
+                                "hasContent": true,
+                                "title": "Cart Tab Default Page",
+                                "url": "/page3",
+                                "routeViews": [
+                                    "tab2"
+                                ],
+                                "previewPage": "",
+                                "ionicpadding": true,
+                                "scroll": true,
+                                "backgroundColor": "",
+                                "backgroundImg": "",
+                                "disableBackButton": false,
+                                "hideHeader": false,
+                                "hasHeader": true,
+                                "hasFooter": false,
+                                "disableParenting": false,
+                                "class": "",
+                                "newProps": true
+                            },
+                            "children": [
+                                {
+                                    "type": "list",
+                                    "id": "list2",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "class": "",
+                                        "fullwidth": false,
+                                        "newProps": true
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "list-item",
+                                            "id": "list-item3",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": false,
+                                                "link": "",
+                                                "linkView": "",
+                                                "content": "Item",
+                                                "secondline": "",
+                                                "secondLineWordWrap": false,
+                                                "type": "thumbnail",
+                                                "iconStyle": "ion-ionic",
+                                                "avatarImg": "",
+                                                "thumbnailImg": "",
+                                                "theme": "none",
+                                                "class": "",
+                                                "note": "",
+                                                "rightIcon": "No Icon",
+                                                "rightAccessory": false,
+                                                "style": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "list-item",
+                                            "id": "list-item3",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": false,
+                                                "link": "",
+                                                "linkView": "",
+                                                "content": "Item",
+                                                "secondline": "",
+                                                "secondLineWordWrap": false,
+                                                "type": "thumbnail",
+                                                "iconStyle": "ion-ionic",
+                                                "avatarImg": "",
+                                                "thumbnailImg": "",
+                                                "theme": "none",
+                                                "class": "",
+                                                "note": "",
+                                                "rightIcon": "No Icon",
+                                                "rightAccessory": false,
+                                                "style": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "list-item",
+                                            "id": "list-item3",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": false,
+                                                "link": "",
+                                                "linkView": "",
+                                                "content": "Item",
+                                                "secondline": "",
+                                                "secondLineWordWrap": false,
+                                                "type": "thumbnail",
+                                                "iconStyle": "ion-ionic",
+                                                "avatarImg": "",
+                                                "thumbnailImg": "",
+                                                "theme": "none",
+                                                "class": "",
+                                                "note": "",
+                                                "rightIcon": "No Icon",
+                                                "rightAccessory": false,
+                                                "style": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "id": "page4",
+                            "props": {
+                                "id": "",
+                                "extraClasses": "",
+                                "width": "",
+                                "height": "",
+                                "margin": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "padding": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "skipcss": false,
+                                "parentState": "page1",
+                                "outlineIcon": "",
+                                "parentView": "",
+                                "idName": "cloudTabDefaultPage",
+                                "abstract": false,
+                                "hasContent": true,
+                                "title": "Cloud Tab Default Page",
+                                "url": "/page4",
+                                "routeViews": [
+                                    "tab3"
+                                ],
+                                "previewPage": "",
+                                "ionicpadding": true,
+                                "scroll": true,
+                                "backgroundColor": "",
+                                "backgroundImg": "",
+                                "disableBackButton": false,
+                                "hideHeader": false,
+                                "hasHeader": true,
+                                "hasFooter": false,
+                                "disableParenting": false,
+                                "class": "",
+                                "newProps": true
+                            },
+                            "children": []
+                        },
+                        {
+                            "type": "page",
+                            "id": "page1",
+                            "props": {
+                                "id": "",
+                                "extraClasses": "",
+                                "width": "",
+                                "height": "",
+                                "margin": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "padding": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "skipcss": false,
+                                "validChildren": [
+                                    "tabs"
+                                ],
+                                "parentState": "",
+                                "outlineIcon": "tabs-controller",
+                                "parentView": "",
+                                "idName": "tabsController",
+                                "abstract": true,
+                                "hasContent": false,
+                                "title": "Tabs Controller",
+                                "url": "/page1",
+                                "routeViews": "",
+                                "previewPage": "page2",
+                                "ionicpadding": true,
+                                "scroll": true,
+                                "backgroundColor": "",
+                                "backgroundImg": "",
+                                "disableBackButton": false,
+                                "hideHeader": false,
+                                "hasHeader": true,
+                                "hasFooter": false,
+                                "disableParenting": false,
+                                "class": "",
+                                "newProps": true,
+                                "info": "Only one Tabs Controller per app is allowed, Tabs Controller cannot be deleted or duplicated.",
+                                "isContainer": false
+                            },
+                            "children": [
+                                {
+                                    "type": "tabs",
+                                    "id": "tabs1",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": false,
+                                        "hasContent": false,
+                                        "style": "stable",
+                                        "fontcolor": "",
+                                        "type": "tabs-icon-top",
+                                        "class": "",
+                                        "newProps": true
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "tab",
+                                            "id": "tab1",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "title": "Camera Tab",
+                                                "icon": "ion-ios-camera",
+                                                "defaultPage": "page2",
+                                                "pages": "",
+                                                "class": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "tab",
+                                            "id": "tab2",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "title": "Cart Tab",
+                                                "icon": "ion-ios-cart",
+                                                "defaultPage": "page3",
+                                                "pages": "",
+                                                "class": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "tab",
+                                            "id": "tab3",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "title": "Cloud Tab",
+                                                "icon": "ion-ios-cloud",
+                                                "defaultPage": "page4",
+                                                "pages": "",
+                                                "class": "",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "id": "page5",
+                            "props": {
+                                "id": "",
+                                "extraClasses": "",
+                                "width": "",
+                                "height": "",
+                                "margin": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "padding": {
+                                    "top": "",
+                                    "right": "",
+                                    "bottom": "",
+                                    "left": ""
+                                },
+                                "skipcss": false,
+                                "parentState": "",
+                                "outlineIcon": "",
+                                "parentView": "",
+                                "idName": "login",
+                                "abstract": false,
+                                "hasContent": true,
+                                "title": "Login",
+                                "url": "/page5",
+                                "routeViews": "",
+                                "previewPage": "",
+                                "ionicpadding": true,
+                                "scroll": true,
+                                "backgroundColor": "",
+                                "backgroundImg": "",
+                                "disableBackButton": false,
+                                "hideHeader": false,
+                                "hasHeader": true,
+                                "hasFooter": false,
+                                "disableParenting": false,
+                                "class": "",
+                                "newProps": true
+                            },
+                            "children": [
+                                {
+                                    "type": "form",
+                                    "id": "form5",
+                                    "props": {
+                                        "id": "",
+                                        "extraClasses": "",
+                                        "width": "",
+                                        "height": "",
+                                        "margin": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "padding": {
+                                            "top": "",
+                                            "right": "",
+                                            "bottom": "",
+                                            "left": ""
+                                        },
+                                        "skipcss": true,
+                                        "action": "",
+                                        "method": "",
+                                        "class": "",
+                                        "newProps": true
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "list",
+                                            "id": "list3",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "class": "",
+                                                "fullwidth": false,
+                                                "newProps": true
+                                            },
+                                            "children": [
+                                                {
+                                                    "type": "input",
+                                                    "id": "input3",
+                                                    "props": {
+                                                        "id": "",
+                                                        "extraClasses": "",
+                                                        "width": "",
+                                                        "height": "",
+                                                        "margin": {
+                                                            "top": "",
+                                                            "right": "",
+                                                            "bottom": "",
+                                                            "left": ""
+                                                        },
+                                                        "padding": {
+                                                            "top": "",
+                                                            "right": "",
+                                                            "bottom": "",
+                                                            "left": ""
+                                                        },
+                                                        "skipcss": true,
+                                                        "title": "Username",
+                                                        "type": "text",
+                                                        "placeholder": "",
+                                                        "name": "",
+                                                        "labelstyle": "normal",
+                                                        "class": "",
+                                                        "newProps": true
+                                                    },
+                                                    "children": []
+                                                },
+                                                {
+                                                    "type": "input",
+                                                    "id": "input4",
+                                                    "props": {
+                                                        "id": "",
+                                                        "extraClasses": "",
+                                                        "width": "",
+                                                        "height": "",
+                                                        "margin": {
+                                                            "top": "",
+                                                            "right": "",
+                                                            "bottom": "",
+                                                            "left": ""
+                                                        },
+                                                        "padding": {
+                                                            "top": "",
+                                                            "right": "",
+                                                            "bottom": "",
+                                                            "left": ""
+                                                        },
+                                                        "skipcss": true,
+                                                        "title": "Password",
+                                                        "type": "password",
+                                                        "placeholder": "",
+                                                        "name": "",
+                                                        "labelstyle": "normal",
+                                                        "class": "",
+                                                        "newProps": true
+                                                    },
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "spacer",
+                                            "id": "spacer3",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "40px",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": false
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "button",
+                                            "id": "button7",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "link": "",
+                                                "linkView": "",
+                                                "text": "Log in",
+                                                "fontsize": "",
+                                                "alignment": "center",
+                                                "fontweight": null,
+                                                "fontcolor": "",
+                                                "type": "",
+                                                "widthType": "block",
+                                                "newType": "default",
+                                                "style": "stable",
+                                                "size": "",
+                                                "fullwidth": false,
+                                                "class": "",
+                                                "icon": "No Icon",
+                                                "iconposition": "center",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "button",
+                                            "id": "button8",
+                                            "props": {
+                                                "id": "",
+                                                "extraClasses": "",
+                                                "width": "",
+                                                "height": "",
+                                                "margin": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "padding": {
+                                                    "top": "",
+                                                    "right": "",
+                                                    "bottom": "",
+                                                    "left": ""
+                                                },
+                                                "skipcss": true,
+                                                "link": "/signup",
+                                                "linkView": "",
+                                                "text": "Or create an account",
+                                                "fontsize": "",
+                                                "alignment": "center",
+                                                "fontweight": {
+                                                    "weight": "400",
+                                                    "italic": false
+                                                },
+                                                "fontcolor": "",
+                                                "type": "",
+                                                "widthType": "block",
+                                                "newType": "clear",
+                                                "style": "positive",
+                                                "size": "",
+                                                "fullwidth": false,
+                                                "class": "",
+                                                "icon": "No Icon",
+                                                "iconposition": "center",
+                                                "newProps": true
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
