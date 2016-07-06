@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RxJs学习</title>
+
+    <!--https://github.com/Reactive-Extensions/RxJS-->
+    <script src="jquery-1.12.4.min.js"></script>
+    <script src="rxjs/rx.lite.js"></script>
+
+    <script>
+        $(function () {
+            const $input = $("#input");
+            const $results = $("#results");
+
+            // 整个事件流：
+            // 用户按键 -> 得到input内容 -> 内容超过2个以上字符后 -> 输入停止500秒后 -> 过滤掉重复的内容（如果500毫秒后，内容与之前相同，算重复）
+            // -> 发出ajax请求。
+
+            var keyups = Rx.Observable.fromEvent($input, 'keyup')
+                            .pluck('target', 'value')
+                            .filter(text => text.length > 2);
+            var debounced = keyups.debounce(500);
+            var distinct = debounced.distinctUntilChanged();
+
+            function searchWiki(term) {
+                return $.ajax({
+                    url: 'https://en.wikipedia.org/w/api.php',
+                    dataType: 'jsonp',
+                    data:{
+                        action: 'opensearch',
+                        format: 'json',
+                        search: term
+                    }
+                }).promise();
+            }
+
+            var suggestions = distinct.flatMapLatest(searchWiki);
+            suggestions.subscribe(
+                    data => {
+                $results.empty().append($.map(data[1], value => $('<li>').text(value)))
+        },
+            error => {
+                $results.empty().append($('<li>').text('Error: ' + error))
+            }
+            )
+
+        });
+    </script>
+
+</head>
+<body>
+    <input id="input" type="text">
+    <div id="results"></div>
+</body>
+</html>
